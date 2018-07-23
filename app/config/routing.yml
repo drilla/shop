@@ -1,7 +1,8 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
-easy_admin_bundle:
-    resource: "@EasyAdminBundle/Controller/AdminController.php"
-    type:     annotation
-    prefix:   /admin
+
+app_directory:
+    # loads routes from the YAML or XML files found in that directory
+    resource: 'routes/'
+    type:     directory
