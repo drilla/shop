@@ -19,8 +19,14 @@ class ProductMapper implements DataMapperInterface
      * @throws Exception\UnexpectedTypeException if the type of the data parameter is not supported
      */
     public function mapDataToForms($data, $forms) {
-        if (null !== $data) {
-            $forms = iterator_to_array($forms);
+
+        $forms = iterator_to_array($forms);
+
+        if (!$data) {
+            $forms['name']->setData('');
+            $forms['price']->setData(null);
+            $forms['description']->setData('');
+        } else {
             $forms['name']->setData($data->getName());
             $forms['price']->setData($data->getPrice());
             $forms['description']->setData($data->getDescription());

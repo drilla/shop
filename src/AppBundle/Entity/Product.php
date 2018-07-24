@@ -5,7 +5,8 @@ namespace AppBundle\Entity;
 class Product
 {
 
-    private $id;
+    /** @var  int | null */
+    private $id = null;
 
     /** @var string */
     private $name;
