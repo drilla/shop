@@ -40,13 +40,18 @@ class ProductMapper implements DataMapperInterface
 
         if (null === $data->getId()) {
             $name = $forms['name']->getData();
+            $price = $forms['price']->getData();
             $description = $forms['description']->getData();
 
             // New entity is created
-            $data = new Product();
+            $data = new Product(
+                $name, $price, $description
+            );
 
         } else {
             $data->update(
+                $forms['name']->getData(),
+                $forms['price']->getData(),
                 $forms['description']->getData()
             );
         }
