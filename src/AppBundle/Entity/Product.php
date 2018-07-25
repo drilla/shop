@@ -17,12 +17,6 @@ class Product
     /** @var string */
     private $description;
 
-    public function __construct(string $name = '', float $price = 0, string $description = '') {
-        $this->name = $name;
-        $this->price = $price;
-        $this->description = $description;
-    }
-
     public function getName() {
         return $this->name;
     }
@@ -32,7 +26,7 @@ class Product
         return $this;
     }
 
-    public function getPrice() : float {
+    public function getPrice() : ?float {
         return $this->price;
     }
 
@@ -41,7 +35,7 @@ class Product
         return $this;
     }
 
-    public function getDescription() : string {
+    public function getDescription() : ?string {
         return $this->description;
     }
 
@@ -52,5 +46,10 @@ class Product
 
     public function getId() : ?int {
         return $this->id;
+    }
+
+    public function setId(int $id) : self {
+        $this->id = $id;
+        return $this;
     }
 }

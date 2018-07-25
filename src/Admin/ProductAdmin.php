@@ -2,7 +2,6 @@
 
 namespace Admin;
 
-use AppBundle\Form\Mapper\ProductMapper;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -18,8 +17,8 @@ class ProductAdmin extends AbstractAdmin
             ->add('description', TextType::class)
         ;
 
-        $builder = $formMapper->getFormBuilder();
-        $builder->setDataMapper(new ProductMapper());
+//        $builder = $formMapper->getFormBuilder();
+//        $builder->setDataMapper(new ProductMapper());
     }
 
     protected function configureDatagridFilters(DatagridMapper $dataGridMapper) : void {
