@@ -1,0 +1,7 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+sonata_admin:
+    resource: 'sonata-admin.yml'
+    type: file

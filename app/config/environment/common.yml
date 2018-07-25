@@ -1,8 +1,5 @@
 imports:
-    - { resource: parameters.yml }
-    - { resource: security.yml }
-    - { resource: services.yml }
-    - { resource: vendor/sonata-admin.yml }
+    - { resource: imports.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -14,7 +11,7 @@ framework:
     #translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
-        resource: '%kernel.project_dir%/app/config/routing.yml'
+        resource: '%kernel.project_dir%/app/config/route/common.yml'
         strict_requirements: ~
     form: ~
     csrf_protection: ~
@@ -31,6 +28,7 @@ framework:
     assets: ~
     php_errors:
         log: true
+    translator: { fallback: "%locale%" }
 
 # Twig Configuration
 twig:
