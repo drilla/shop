@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Product;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,9 +14,13 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $manager = $this->container->get('doctrine.orm.entity_manager');
+
+        $products = $manager->getRepository(Product::class)->findBy(['id' => 1]);
+
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+            'products' => $products,
         ]);
     }
 }
