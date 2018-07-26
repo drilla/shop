@@ -1,7 +1,0 @@
-# добавляем сюда конфиги, которые нужно подключить для всех окружений
-
-imports:
-    - { resource: parameters.yml }
-    - { resource: ../service/common.yml }
-    - { resource: ../service/security.yml }
-    - { resource: ../bundle/sonata-admin.yml }

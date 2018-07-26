@@ -3,10 +3,10 @@ parameters:
     database_host: 127.0.0.1
     database_port: 3306
     database_name: shop
-    database_user: shop
+    database_user: root
     database_password: 123
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
-    secret: fgfadcvn34sdfisaSdfgs35sSSdfh
+    secret: a349c1e30d83f5cf1ee2a56d059d9cd9bc7fa7d8

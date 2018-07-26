@@ -1,5 +1,11 @@
+# добавляем сюда конфиги, которые нужно подключить для всех окружений
 imports:
-    - { resource: imports.yml }
+    - { resource: ../app/parameters.yml }
+    - { resource: ../app/service.yml }
+    - { resource: ../app/security.yml }
+
+    # bundles
+    - { resource: ../bundle/sonata-admin.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -11,7 +17,7 @@ framework:
     #translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
-        resource: '%kernel.project_dir%/app/config/route/common.yml'
+        resource: '%kernel.root_dir%/config/route/common.yml'
         strict_requirements: ~
     form: ~
     csrf_protection: ~
