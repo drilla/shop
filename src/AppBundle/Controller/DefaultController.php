@@ -16,7 +16,7 @@ class DefaultController extends Controller
     {
         $manager = $this->container->get('doctrine.orm.entity_manager');
 
-        $products = $manager->getRepository(Product::class)->findBy(['id' => 1]);
+        $products = $manager->getRepository(Product::class)->findAll();
 
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
