@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block style %}{% endblock %}
     {% block title %}{% endblock %}
+
+    {% stylesheets output="css/app.css"
+        "assets/scss/*"
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
     {% include 'layout/block/open_graph.html.twig' %}
 
 </head>

@@ -1,0 +1,116 @@
+.menu{
+    position: fixed;
+    top: 0;
+    left: -390px;
+    min-width: 320px;
+    padding: 7rem 3rem 0 5.2rem;
+    height: 100%;
+    box-shadow: 0 0 40px rgba(50, 41, 5, 0.15);
+    background-color: #ffffff;
+    z-index: 10;
+    transition: .3s left ease-in-out;
+    
+    .container{
+        padding: 0;
+    }
+
+    &.active{
+        left: 0;
+    }
+
+    &__close{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 7rem;
+        height: 7rem;
+        background-color: #f4f4f4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $main-color;
+        cursor: pointer;
+    }
+
+    &__list{
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        > li{
+            padding: 1.9rem 0;
+            line-height: 1;
+
+            > a{
+                color: $text-color-grey;
+                padding: 1rem;
+                font-weight: 600;
+                font-size: 1.2rem;
+                /*line-height: 1;*/
+                text-transform: uppercase;
+                border: 1px solid transparent;
+                letter-spacing: 0.6px;
+                text-decoration: none;
+                border-radius: 3px;
+                transition: .3s all ease-in-out;
+
+                &:hover{
+                    background-color: #f8f8f8;
+                }
+
+                &.active{
+                    border: 1px solid #f2c404;
+                }
+            }
+
+        }
+    }
+
+    &__footer{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+}
+
+@media (min-width: 1210px) {
+
+    .menu{
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 7rem;
+        border-top: 1px solid #e9e9e6;
+        padding: 2rem 0;
+        box-shadow: 0px 13px 30px 0px rgba(50, 41, 5, 0.06);
+
+        &__close{
+            display: none;
+        }
+
+        &__list{
+            display: flex;
+            justify-content: center;
+
+            > li{
+                padding: 0;
+                margin: 0 2rem;
+
+                > a{
+                    padding: 1rem 1rem .6rem;
+                    display: block;
+                }
+            }
+        }
+
+        &__footer{
+            display: none;
+        }
+        
+        .container{
+            padding: 0 15px;
+        }
+    }
+}

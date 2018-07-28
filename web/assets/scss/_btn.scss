@@ -1,0 +1,74 @@
+.btn{
+    width: 100%;
+    border-radius: 3px;
+    background-color: $main-color;
+    color: #000000;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 1.65rem 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    transition: .3s all ease-in-out;
+
+    &:hover, &:focus, &:active{
+        text-decoration: none;
+        outline: none;
+        background-color: lighten($main-color, 5%);
+        border-color: transparent;
+    }
+
+    &_inactive {
+        &:hover, &:focus, &:active{
+            background-color: lighten($text-color-grey2, 5%);
+            user-select: none;
+        }
+    }
+
+    &_white{
+        border-radius: 3px;
+        border: 1px solid $text-color-grey2;
+        background: #fff;
+        padding: 1.65rem;
+        align-self: center;
+    }
+
+
+    &_more{
+        display: inline-block;
+        text-transform: none;
+        color: $text-color-grey2;
+        padding: 0.3rem 1rem;
+        background: transparent;
+        font-size: 1.4rem;
+        
+        &:hover{
+            background: $main-color;
+            color: #010101;
+        }
+    }
+    
+    &_no-fw{
+        width: auto;
+        padding: 1.65rem 4.9rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .btn {
+        width: auto;
+        padding: 1.65rem 4.9rem;
+
+        &_white{
+            width: 150px;
+            padding: 1.65rem 2rem;
+        }
+        
+        &_more{
+            padding: 0.3rem 1rem;
+        }
+    }   
+}

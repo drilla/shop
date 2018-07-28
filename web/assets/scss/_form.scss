@@ -1,0 +1,146 @@
+.form{
+
+    &__text{
+        width: 100%;
+        border-radius: 5px;
+        padding: 1.5rem 2rem;
+        border: none;
+        outline: none;
+        background-color: $border-color;
+        margin-bottom: 1px;
+        color: $text-color;
+
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: $text-color-grey2;
+            opacity: 1;
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+            color: $text-color-grey2;
+            opacity: 1;
+        }
+        &:-ms-input-placeholder { /* IE 10+ */
+            color: $text-color-grey2;
+            opacity: 1;
+        }
+
+        select{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: none;
+            background: none;
+            width: calc(100% + 3px);
+            height: 100%;
+            outline: none;
+            position: relative;
+            left: -3px;
+            color: $text-color-grey2;
+        }
+
+        &_ta{
+            resize: none;
+            min-height: 13em;
+        }
+    }
+
+    &__label {
+        color: $text-color-grey4;
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 1.6;
+    }
+
+    &__adress-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        input{
+            width: 33.1%;
+            text-align: center;
+            padding: 1.5rem 1.6rem;
+        }
+    }
+
+    &_wish{
+        padding-right: 4.5rem;
+    }
+
+}
+
+@media (min-width: 768px){
+    .form{
+
+        &__adress-wrapper{
+            justify-content: flex-start;
+
+            input{
+                width: calc(25% - 1px);
+                margin-right: 1px;
+                padding: 1.5rem 1.2rem;
+
+                &:nth-of-type(4){
+                    margin-right: 0;
+                    width: 25%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px){
+    .form{
+
+        &_wish{
+            padding-right: 0;
+        }
+
+    }
+
+}
+
+@media (min-width: 1024px){
+    .form{
+
+        .no-gutters{
+
+            .form__text{
+                border-right: 1px solid #fff;
+            }
+        }
+
+        .form__adress-wrapper{
+            flex-wrap: nowrap;
+
+            input{
+                /*width: 100%;*/
+                width: 14.2%;
+                padding: 1.5rem .5rem;
+
+                &:nth-of-type(4){
+                    min-width: 119px;
+                }
+            }
+        }
+
+        &__text{
+
+            &_ta{
+                min-height: 10rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 1210px){
+    .form{
+
+        .form__adress-wrapper{
+
+            input{
+                width: 14.9%;
+            }
+        }
+    }
+
+}

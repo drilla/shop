@@ -1,0 +1,98 @@
+.sec{
+    padding: 3rem 0 1rem;
+    overflow: hidden;
+
+    &_1{
+        background: #fff url(../img/sec1.jpg) no-repeat left top;
+        text-align: center;
+        padding: 4rem 0 6.5rem;
+    }
+
+    &_2{
+        padding: 7rem 0 1rem; 
+    }
+
+    &_7{
+        padding: 4rem 0 3rem;
+    }
+
+    &_8{
+        padding: 4rem 0 1rem;
+    }
+
+    &_9{
+        background: #fff;
+        padding: 4rem 0 3.5rem;
+    }
+
+    &_10{
+        font-size: 1.2rem;
+        padding: 2rem 0;
+    }
+
+    &_11{
+        padding: 6.4rem 0 0;
+    }
+
+    &_12{
+
+        .row{
+            margin: 0;
+            background: #fff;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            position: relative;
+        }
+    }
+
+    &_order{
+        padding: 0;
+        margin-bottom: -1.5rem;
+    }
+
+    &_points{
+        padding: 3rem 0 7.5rem;
+    }
+
+}
+
+@media (min-width: 768px){
+    .sec{
+
+        &_1{
+            padding: 4rem 0 7.3rem;
+            background: #fff url(../img/sec1-md.jpg) no-repeat left top;
+        }
+    }
+}
+@media (min-width: 1024px){
+    .sec{
+
+        &_1{
+            padding: 6rem 0 7.3rem;
+            background: #fff url(../img/sec1-lg.jpg) no-repeat left top;
+        }
+    }
+}
+@media (min-width: 1210px){
+    .sec{
+
+        &_1{
+            padding: 8rem 0 8rem;
+            background: #fff url(../img/sec1-xl.jpg) no-repeat center top/cover;
+        }
+    }
+}
+
+@media (max-width: 1023px){
+    .sec{
+
+        &_12{
+
+            .row{
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+        }
+    }
+}

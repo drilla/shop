@@ -1,0 +1,152 @@
+@import "bootstrap/bootstrap.scss";
+@import "owl/owl.carousel.min.scss";
+@import "owl/owl.theme.default.min.scss";
+
+$bg-color: #f8f8f8;
+$text-color: #000;
+$text-color-grey: #666;
+$text-color-grey2: #999;
+$text-color-grey3: #eee;
+$text-color-grey4: #333;
+$border-color: #f4f4f4;
+$main-color: #f2c404;
+
+@mixin shadow{
+    box-shadow: 0 0 10px rgba(50, 41, 5, 0.1) !important;
+}
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('../fonts/ProximaNova-Regular.woff2') format('woff2'),
+        url('../fonts/ProximaNova-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('../fonts/ProximaNova-Semibold.woff2') format('woff2'),
+        url('../fonts/ProximaNova-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('../fonts/ProximaNova-Bold.woff2') format('woff2'),
+        url('../fonts/ProximaNova-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('../fonts/ProximaNova-Extrabold.woff2') format('woff2'),
+        url('../fonts/ProximaNova-Extrabold.woff') format('woff');
+    font-weight: 900;
+    font-style: normal; 
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    position: relative;
+    background: $bg-color;
+    color: $text-color;
+    font-family: 'ProximaNova';
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.43;
+    padding-top: 14rem;
+    height: 100%;
+    overflow-x: hidden;
+    padding-top: 7rem;
+}
+
+.container{
+    padding: 0 5.2rem;
+
+    &_order{
+        padding: 15px 0;
+    }
+}
+
+.overlay{
+    visibility: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #333333;
+    opacity: 0;
+    z-index: 9;
+    transition: .3s all ease-in-out;
+
+    &.active{
+        visibility: visible;
+        opacity: .5;
+    }
+}
+
+@import "_menu.scss";
+@import "_header.scss";
+@import "_icons.scss";
+@import "_logo.scss";
+@import "_helpers.scss";
+@import "_section.scss";
+@import "_typo.scss";
+@import "_btn.scss";
+@import "_card.scss";
+@import "_form.scss";
+@import "_panel.scss";
+@import "_orders.scss";
+@import "_modal.scss";
+/*@import "_enoughMoney.scss";*/
+/*@import "_animate.min.scss";*/
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0px 75px;
+
+        &_order{
+            padding: 15px 75px;
+        }
+    }   
+}
+
+@media (max-width: 575px){
+    .container{
+
+        &_order{
+            max-width: 100%;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 45px;
+
+        &_order{
+            padding: 15px 45px;
+        }
+    }   
+}
+
+@media (min-width: 1210px) {
+    body{
+        padding-top: 14rem;
+
+        &.orderPage{
+            padding-top: 14rem;
+        }
+    }
+    .container {
+        padding: 0 15px;
+
+        &_min, &_order{
+            max-width: 1000px;
+            padding: 15px;
+        }
+    }   
+}

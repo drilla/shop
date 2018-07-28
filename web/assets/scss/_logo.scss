@@ -1,0 +1,22 @@
+.logo{
+    flex: 0 1 auto;
+    height: 100%;
+    padding: 1.4rem 1.7rem 1.3rem;
+}
+
+@media (max-width: 767px) {
+    .logo{
+        padding: 1.4rem 0rem 1.3rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .logo {
+        padding: 1.4rem 3rem 1.3rem;
+    }   
+}
+@media (min-width: 1210px) {
+    .logo {
+        padding: 1.4rem 0 1.3rem;
+    }   
+}

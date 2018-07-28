@@ -1,0 +1,462 @@
+.c {
+    &-main {
+        color: $main-color;
+    }
+    &-grey {
+        color: $text-color-grey;
+    }
+    &-grey2 {
+        color: $text-color-grey2;
+    }
+    &-grey3 {
+        color: $text-color-grey3;
+    }
+    &-grey4 {
+        color: $text-color-grey4;
+    }
+    &-black {
+        color: $text-color;
+    }
+}
+
+.bg {
+    &-grey {
+        background-color: $bg-color;
+    }
+}
+
+.column {
+    &-2 {
+        column-count: 2;
+        column-gap: 5.4rem;
+    }
+}
+
+.fs {
+    &-13 {
+        font-size: 1.3rem;
+    }
+    &-15 {
+        font-size: 1.5rem;
+    }
+    &-16 {
+        font-size: 1.6rem;
+    }
+    &-17 {
+        font-size: 1.7rem;
+    }
+    &-18 {
+        font-size: 1.8rem;
+    }
+    &-19 {
+        font-size: 1.9rem;
+    }
+    &-20 {
+        font-size: 2rem;
+    }
+    &-22 {
+        font-size: 2.2rem;
+    }
+    &-24 {
+        font-size: 2.4rem;
+    }
+    &-30 {
+        font-size: 3rem;
+    }
+    &-45 {
+        font-size: 4.5rem;
+    }
+    &-60 {
+        font-size: 6rem;
+    }
+    &-80 {
+        font-size: 8rem;
+    }
+}
+
+.fw {
+    &-900 {
+        font-weight: 900;
+    }
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.flag {
+    display: inline-block;
+    margin: 0 .75rem 1rem 0;
+    width: 2rem;
+    &:last-of-type {
+        margin: 0 0 1rem 0;
+    }
+}
+
+.lead {
+    background-color: $text-color-grey3;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: .5rem .5rem;
+    align-self: center;
+    &_big {
+        padding: 0.4rem 1.8rem;
+        display: inline-block;
+        margin-bottom: 2rem;
+    }
+}
+
+.owl {
+    &-carousel {
+        .owl-item {
+            /*padding-bottom: .5rem;*/
+            transition: .3s all ease-in-out;
+            &:hover {
+                box-shadow: 0 0 40px rgba(50, 41, 5, 0.15);
+                z-index: 3;
+            }
+            img {
+                width: auto;
+                display: inline;
+            }
+        }
+        .owl-stage {
+            @include shadow;
+        }
+        .owl-stage-outer {
+            overflow: visible;
+            padding-bottom: 1rem;
+        }
+        &.owl_nohb {
+            .owl-nav {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                /*height: 100%;*/
+                button {
+                    width: 5rem;
+                    height: 5rem;
+                    background-color: $main-color;
+                    border-radius: 50%;
+                    position: absolute;
+                    margin-top: -2.5rem;
+                    top: calc(50% + 15.9rem);
+                    outline: none;
+                    box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.24);
+                    >i {
+                        font-size: 1.2rem;
+                        color: #252525;
+                    }
+                    &.owl-prev {
+                        left: -2.5rem;
+                    }
+                    &.owl-next {
+                        right: -2.5rem;
+                    }
+                }
+            }
+        }
+        &.owl_modal {
+            .owl-nav {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                /*height: 100%;*/
+                button {
+                    width: 5rem;
+                    height: 5rem;
+                    background-color: $bg-color;
+                    border-radius: 50%;
+                    position: absolute;
+                    margin-top: 10.5rem;
+                    outline: none;
+                    >i {
+                        font-size: 1.2rem;
+                        color: #252525;
+                    }
+                    &.owl-prev {
+                        left: -2.5rem;
+                    }
+                    &.owl-next {
+                        right: -2.5rem;
+                    }
+                }
+            }
+        }
+    }
+    &_modal {
+        .owl-stage {
+            .owl-item {
+                &:last-of-type {
+                    .card_modal {
+                        border-right: 1px solid $bg-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.shadow {
+    @include shadow;
+}
+
+.lh {
+    &-1 {
+        line-height: 1;
+    }
+    &-117 {
+        line-height: 1.17;
+    }
+}
+
+.w {
+    &_7-5 {
+        width: 7.5rem;
+    }
+}
+
+.chuvak {
+    position: absolute;
+    bottom: -6rem;
+    left: -1.6rem;
+}
+
+.no-gutters {
+    padding-bottom: 3px;
+    /*    > .col{
+            
+            > input{
+                margin-right: 1px;
+            }
+        }*/
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.star {
+    color: #be2626;
+}
+
+.cursor{
+    
+    &-pointer{
+        cursor: pointer;
+    }
+}
+
+.radio {
+    display: inline-flex;
+    flex-direction: column;
+    &__block {
+        /* Style for "Прямоуголь" */
+        width: 271px;
+        height: 50px;
+        border: 1px solid $border-color;
+        display: flex;
+        align-items: center;
+        padding: 0 2rem;
+        &:first-of-type {
+            border-radius: 5px 5px 0 0;
+        }
+        &:last-of-type {
+            border-radius: 0 0 5px 5px;
+        }
+        &.active {
+            background-color: $border-color;
+        }
+    }
+    &__label {
+        margin: 0;
+        font-size: 1.3rem;
+        position: relative;
+        padding-left: 2rem;
+        cursor: pointer;
+    }
+    &__input {
+        position: absolute;
+        opacity: 0;
+        &:checked {
+            ~.radio__checkmark {
+                &:after {
+                    content: '';
+                    width: 6px;
+                    height: 6px;
+                    background-color: #f2c404;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-top: -3px;
+                    margin-left: -3px;
+                }
+            }
+        }
+    }
+    &__checkmark {
+        width: 12px;
+        height: 12px;
+        border: 1px solid #f2c404;
+        position: absolute;
+        border-radius: 50%;
+        top: 50%;
+        margin-top: -6px;
+        left: 0;
+    }
+    &_cb,
+    &_cb-big {
+        .radio__label {
+            padding-left: 2.3rem;
+        }
+        .radio__checkmark {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+            background-color: #f2c404;
+            margin-top: -8px;
+        }
+        .radio__input {
+            &:checked {
+                ~.radio__checkmark {
+                    &:after {
+                        content: '\e81b';
+                        font-family: 'honey';
+                        color: #8f791c;
+                        font-size: .9rem;
+                        width: auto;
+                        height: auto;
+                        margin-top: -6px;
+                        margin-left: -4px;
+                    }
+                }
+            }
+        }
+    }
+    &_cb-big {
+        .radio__checkmark {
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+        }
+        .radio__label {
+            padding-left: 3rem;
+        }
+    }
+}
+
+.link {
+    color: inherit;
+    display: inline-flex;
+    transition: .25s all ease-in-out;
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+        color: inherit;
+    }
+    &_header {
+        &:hover {
+            background-color: $border-color;
+        }
+    }
+}
+
+.bonus-rate {
+    max-width: 11rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.b-lazy {
+    transition: opacity 500ms ease-in-out;
+    opacity: 0;
+    &.b-loaded,
+    &.b-error {
+        opacity: 1;
+    }
+}
+
+section.b-lazy,
+article.b-lazy,
+.container.b-lazy {
+    opacity: 1;
+}
+
+.img {
+    &-mngr {
+        max-width: 45px;
+    }
+}
+
+@media (max-width: 1209px) {
+    .chuvak {
+        max-width: 34rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .chuvak {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .radio {
+        flex-direction: row;
+        &__block {
+            width: 246px;
+            &:first-of-type {
+                border-radius: 5px 0 0 5px;
+                border-right: none;
+            }
+            &:last-of-type {
+                border-radius: 0 5px 5px 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .animated {
+        /*CSS transitions*/
+        -o-transition-property: none !important;
+        -moz-transition-property: none !important;
+        -ms-transition-property: none !important;
+        -webkit-transition-property: none !important;
+        transition-property: none !important;
+        /*CSS transforms*/
+        -o-transform: none !important;
+        -moz-transform: none !important;
+        -ms-transform: none !important;
+        -webkit-transform: none !important;
+        transform: none !important;
+        /*CSS animations*/
+        -webkit-animation: none !important;
+        -moz-animation: none !important;
+        -o-animation: none !important;
+        -ms-animation: none !important;
+        animation: none !important;
+    }
+    .radio {
+        width: 100%;
+        &__block {
+            width: 100%;
+        }
+    }
+    .owl {
+        &_modal {
+            width: 19.4rem;
+        }
+    }
+    .column {
+        &-2 {
+            column-count: 1;
+        }
+    }
+}
