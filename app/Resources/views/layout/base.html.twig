@@ -1,0 +1,82 @@
+
+
+{#$this->registerJsFile('@web/md/honey/js/jquery-3.3.1.min.js', ['position' => \yii\web\View::POS_END]);#}
+{#$this->registerJsFile('@web/md/honey/js/bootstrap.min.js',    ['position' => \yii\web\View::POS_END]);#}
+{#$this->registerJsFile('@web/md/honey/js/blazy.min.js',        ['position' => \yii\web\View::POS_END]);#}
+{#$this->registerJsFile('@web/md/honey/js/jquery.scrollspy.js', ['position' => \yii\web\View::POS_END]);#}
+{#$this->registerJsFile('@web/md/honey/js/owl.carousel.min.js', ['position' => \yii\web\View::POS_END]);#}
+{#$this->registerJsFile('@web/md/honey/js/common.js?v=1', ['position' => \yii\web\View::POS_END]);#}
+
+{#//Для загрузки нужных скриптов на своих страницах#}
+{#$currentPage = Yii::$app->controller->action->id;#}
+{#switch ($currentPage) {#}
+    {#case 'index':#}
+        {#$this->registerJsFile('@web/md/honey/js/index.js', ['position' => \yii\web\View::POS_END]);#}
+        {#break;#}
+    {##}
+    {#case 'order':#}
+        {#$this->registerJsFile('@web/md/honey/js/order.js?v=1',  ['position' => \yii\web\View::POS_END]);#}
+        {#break;#}
+{#}#}
+
+{#$this->registerCssFile('../md/honey/css/style.css');#}
+
+{#/** @var ar\User | null $user */#}
+
+{#$user               = $this->params['user'];#}
+{#$profile            = $this->params['userProfile'];#}
+{#$responsibleManager = $this->params['responsibleManager'];#}
+{#$isGuest            = $this->params['isGuest'];#}
+{#$honeyBonus         = $this->params['honeyBonusValue'];#}
+{#$isBonusAvailable   = $this->params['isBonusAvailable'];#}
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+    {% include 'layout/block/head.html.twig' %}
+
+    <body>
+        <div class="overlay"></div>
+        <input type="hidden" id="hm" value="<?= $isBonusAvailable ? $honeyBonus : 'undefined' ?>" >
+
+        {% include 'layout/block/menu.html.twig' %}
+
+        <header class="header">
+            <div class="container">
+                <div class="header__wrap">
+                    <div class="header__block d-xl-none">
+                        <i class="icon_menu c-main fs-17 pointer"></i>
+                    </div>
+                    <div class="header__block header__block_logo">
+                        <img class="logo" src="../md/honey/img/logo.svg" alt=""/>
+                    </div>
+
+
+                        <a href="" target="_blank" title="Войти" class="header__block header__block_fs0 link link_header">
+                            <i class="icon_login c-main fs-19 mr-0 mr-md-3"></i>Войти
+                        </a>
+                        <a href="" target="_blank" title="Зарегистрироваться" class="header__block header__block_exit link link_header d-none d-lg-flex">
+                            <i class="icon_registration c-main fs-19 mr-0 mr-md-3"></i>Зарегистрироваться
+                        </a>
+
+                        {#<div class="header__block d-none d-xl-flex">#}
+                            {#<i class="icon_user c-main fs-22 mr-0 mr-md-3"></i><?= $user->email ?>#}
+                        {#</div>#}
+
+                        {#<a href="<?= Url::to(Yii::$app->params['affiliateHost']) ?>" target="_blank" title="На главную" class="header__block header__block_exit link link_header">#}
+                            {#<i class="icon_back c-main fs-19 mr-0 mr-md-3"></i>Назад#}
+                        {#</a>#}
+
+                </div>
+            </div>
+        </header>
+
+        {% block content %}{% endblock %}
+
+        {% include 'layout/block/footer.html.twig' %}
+
+    </body>
+</html>

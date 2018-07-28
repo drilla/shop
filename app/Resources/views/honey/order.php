@@ -1,0 +1,256 @@
+<?php
+
+use yii\bootstrap\Html;
+use \frontend\models\form\HoneyOrderForm as HoneyForm;
+
+/**
+ * @var \yii\web\View $this
+ * @var \common\models\ar\HoneyItem $item
+ * @var \frontend\models\form\HoneyOrderForm $form
+ */
+
+$formatter = Yii::$app->formatter;
+$formatter->thousandSeparator=' ';
+
+$this->title = "Honey Many Market";
+?>
+
+<form class="form" method="POST" action="<?= \yii\helpers\Url::toRoute(['honey/order']) ?>">
+    <?= Html :: hiddenInput(\Yii::$app->getRequest()->csrfParam, \Yii::$app->getRequest()->getCsrfToken(), []); ?>
+    <section class="sec sec_11">
+        <div class="container container_min">
+            <div class="row">
+                <div class="col">
+                    <h2 class="h2 text-left">Оформление заказа</h2>
+                    <h3 class="h3">Контактные данные</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec sec_order">
+        <div class="container container_order">
+
+            <div class="panel">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-3 col-lg-2">
+                        <label class="form__label" for="name">Имя<span class="star">*</span></label>
+                    </div>
+                    <div class="col-12 col-md-9 col-lg-5">
+                        <?= Html::activeTextInput($form, 'name', ['class' => 'form__text', 'required'=>true]) ?>
+                    </div>
+                    <div class="w-100 mb-4"></div>
+                    <div class="col-12 col-md-3 col-lg-2">
+                        <label class="form__label" for="lastname">Фамилия<span class="star">*</span></label>
+                    </div>
+                    <div class="col-12 col-md-9 col-lg-5">
+                        <?= Html::activeTextInput($form, 'lastName', ['class' => 'form__text', 'required'=>true]) ?>
+                    </div>
+                    <div class="w-100 mb-4"></div>
+                    <div class="col-12 col-md-3 col-lg-2">
+                        <label class="form__label" for="middlename">Отчество<span class="star">*</span></label>
+                    </div>
+                    <div class="col-12 col-md-9 col-lg-5">
+                        <?= Html::activeTextInput($form, 'parentName', ['class' => 'form__text', 'required'=>true]) ?>
+                    </div>
+                    <div class="w-100 mb-6"></div>
+                    <div class="col-12 col-md-3 col-lg-2">
+                        <label class="form__label" for="phone">Телефон<span class="star">*</span></label>
+                    </div>
+                    <div class="col-12 col-md-9 col-lg-5">
+                        <?= Html::activeInput('tel', $form, 'phone', ['class' => 'form__text', 'required'=>true]) ?>
+                    </div>
+                    <div class="w-100 mb-4"></div>
+                    <div class="col-12 col-md-3 col-lg-2">
+                        <label class="form__label" for="email">Email<span class="star">*</span></label>
+                    </div>
+                    <div class="col-12 col-md-9 col-lg-5">
+                        <?= Html::activeInput('email', $form, 'email', ['class' => 'form__text']) ?>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="sec">
+        <div class="container container_min">
+            <h3 class="h3">Данные о доставке</h3>
+        </div>
+    </section>
+
+    <section class="sec sec_order">
+        <div class="container container_order">
+            <div class="row">
+                <div class="col">
+                    <div class="panel">
+                        <div class="row">
+                            <div class="col-12 col-md-3 col-lg-2">
+                                <label class="form__label" for="region">Адрес<span class="star">*</span></label>
+                            </div>
+
+                            <div class="col-12 col-md-9 col-lg-10">
+                                <div class="row no-gutters">
+                                    <div class="col-12 col-lg-4">
+                                        <div class="form__text">
+                                            <?= Html::activeDropDownList($form, 'region', [
+                                                    'Тверская область',
+                                                    'Московская область',
+                                                ], ['prompt' => 'регион']) ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <?= Html::activeTextInput($form, 'city', ['class' => 'form__text', 'placeholder' => "Город", 'required'=>true]) ?>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <?= Html::activeTextInput($form, 'postIndex', ['class' => 'form__text mb-3', 'placeholder' => "Индекс", 'required'=>true]) ?>
+                                    </div>
+                                </div>
+
+                                <div class="row no-gutters">
+                                    <div class="col-12 col-lg-4">
+                                        <?= Html::activeTextInput($form, 'street', ['class' => 'form__text', 'placeholder' => "Улица", 'required'=>true]) ?>
+                                    </div>
+                                    <div class="col-12 col-lg-8">
+                                        <div class="form__adress-wrapper">
+                                            <?= Html::activeTextInput($form, 'house', ['class' => 'form__text', 'placeholder' => "Дом", 'required'=>true]) ?>
+                                            <?= Html::activeTextInput($form, 'housing', ['class' => 'form__text', 'placeholder' => "Корп"]) ?>
+                                            <?= Html::activeTextInput($form, 'structure', ['class' => 'form__text', 'placeholder' => "Стр"]) ?>
+                                            <?= Html::activeTextInput($form, 'entrance', ['class' => 'form__text', 'placeholder' => "Подъезд"]) ?>
+                                            <?= Html::activeTextInput($form, 'floor', ['class' => 'form__text', 'placeholder' => "Этаж"]) ?>
+                                            <?= Html::activeTextInput($form, 'flat', ['class' => 'form__text', 'placeholder' => "Кв"]) ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w-100 mb-6"></div>
+
+                            <div class="col-12 col-md-3 col-lg-2">
+                                <label class="form__label">Доставка<span class="star">*</span></label>
+                            </div>
+
+                            <div class="col-12 col-md-9 col-lg-10">
+                                <div class="radio">
+                                    <div class="radio__block">
+                                        <label class="radio__label">
+
+                                            <?= Html::activeRadio($form, 'deliveryWay', [
+                                                    'class' => 'radio__input',
+                                                    'label' => false,
+                                                    'value' => HoneyForm::DELIVERY_WAY_COURIER
+                                            ]) ?> Курьером
+                                            <span class="radio__checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="radio__block">
+                                        <label class="radio__label">
+                                            <?= Html::activeRadio($form, 'deliveryWay', [
+                                                'class' => 'radio__input',
+                                                'label' => false,
+                                                'value' => HoneyForm::DELIVERY_WAY_POSTAL
+                                            ]) ?> Почтой
+                                            <span class="radio__checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w-100 mb-6"></div>
+
+                            <div class="col-12 col-md-3 col-lg-2">
+                                <label class="form__label">Комментарий</label>
+                            </div>
+
+                            <div class="col-12 col-md-9 col-lg-10">
+                                <?= Html::activeTextarea($form, 'comment', [
+                                        'class' => 'form__text form__text_ta',
+                                        'placeholder' => 'Напишите, если есть, что добавить'
+                                ]) ?>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec">
+        <div class="container container_min">
+            <h3 class="h3">Ваш заказ</h3>
+        </div>
+    </section>
+
+    <section class="sec sec_order">
+        <div class="container container_order">
+            <div class="row">
+                <div class="col">
+
+                    <div class="orders">
+                        <div class="orders__block">
+                            <div class="orders-item">
+
+                                <img class="orders-item__img b-lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="<?= $item->getImageUrl() ?>" alt=""/>
+                                <div class="orders-item__text"><?= $item->name ?></div>
+
+                            </div>
+                            <div class="orders-info">
+                                <div class="orders-counter">
+                                    <div class="orders-counter__button orders-counter__button_minus">-</div>
+                                    <?= Html::activeTextInput($form, 'quantity', ['class' => 'orders-counter__window']) ?>
+                                    <?= Html::activeHiddenInput($form, 'itemId') ?>
+                                    <div class="orders-counter__button orders-counter__button_plus">+</div>
+                                </div>
+                                <div class="orders-info__prices">
+                                    <div class="orders-price">
+                                        <span>Цена за шт</span><span class="price price_one"><?= $formatter->asDecimal($item->price, 0) . ' HM' ?></span>
+                                    </div>
+                                    <div class="orders-price">
+                                        <span>Итого</span><span class="price price_total"><?= $formatter->asDecimal($form->getMainItemPrice(), 0) . ' HM' ?></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php if ($form->addFreeGift) :?>
+                        <div class="orders__block">
+                            <span class="icon_close orders__block_close js-remove-free-gift" title="Удалить"></span>
+                            <div class="orders-item">
+                                <img class="orders-item__img b-lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="../md/honey/img/gifts/special.jpg" alt=""/>
+                                <div class="orders-item__text">Набор всех офферов ЗДОРОВ (в подарок при заказе любого товара)</div>
+                            </div>
+                            <div class="orders-info">
+
+                                <div class="orders-info__prices ml-md-auto">
+                                    <div class="orders-price">
+                                        <span>Цена за шт</span>0 HM
+                                    </div>
+                                    <div class="orders-price">
+                                        <span>Итого</span>0 HM
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endif; ?>
+
+                        <?= Html::activeHiddenInput($form, 'addFreeGift', ['class' => 'js-add-gift-input']) ?>
+
+                        <div class="orders__total">
+                            <span>Итого к оплате</span>
+                            <span class="fs-15 c-black"><b class="price price_total"><?= $formatter->asDecimal($form->getTotalPrice(), 0    ) . ' HM' ?></b></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec">
+        <div class="container container_min text-md-right">
+            <button type="submit" class="btn mb-6 mt-2">завершить</button>
+        </div>
+    </section>
+</form>
