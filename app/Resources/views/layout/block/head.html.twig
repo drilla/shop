@@ -6,11 +6,19 @@
     {% block style %}{% endblock %}
     {% block title %}{% endblock %}
 
-    {% stylesheets output="css/app.css"
-        "assets/scss/*"
+    {% stylesheets filter='scssphp' output="css/app.css"
+        "assets/scss/style.scss"
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
+
+    {% javascripts filter="?jsqueeze" output="js/app.js"
+        "assets/js/*.js"
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+
     {% include 'layout/block/open_graph.html.twig' %}
 
 </head>
