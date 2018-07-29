@@ -1,0 +1,29 @@
+<div class="card cursor-pointer"
+     data-modal-href=""
+        {#data-modal-href="<?= \yii\helpers\Url::toRoute(['honey/offer-family-bonuses', 'id' => $family->id]) ?>"#}
+     data-toggle="modal"
+     data-target="#modalPoints"
+     data-container-selector="#modalPointsBody"
+>
+    <div class="card__img">
+        <img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
+             data-src="" alt=""/>
+        {#data-src="<?= $family->getImageUrl() ?>" alt=""/>#}
+    </div>
+    <div class="card__header">
+        <div>
+            {#<?php foreach ($family->getCountryCategories() as $category) : ?>#}
+
+            <img class="flag b-lazy"
+                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
+                 data-src=""
+                    {#data-src="<?= helpers\Country::categoryFlagUrl($category) ?>" #}
+                 alt=""/>
+            {#<?php endforeach; ?>#}
+        </div>
+        <span class="card__link">{{ 'offer_name' }}</span>
+    </div>
+    <div class="card__body">
+        <div class="lead">1 апрув = до {{ 1100 }} HM</div>
+    </div>
+</div>
