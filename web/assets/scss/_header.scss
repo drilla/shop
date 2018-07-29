@@ -6,6 +6,7 @@
     left: 0;
     width: 100%;
     z-index: 3;
+    color:$main-color;
 
     &__wrap{
         display: flex;
@@ -97,7 +98,8 @@
             }
 
             &_logo{
-                padding: 0;
+                padding-left: 1rem ;
+                padding-right: 3rem ;
             }
         }
     }   

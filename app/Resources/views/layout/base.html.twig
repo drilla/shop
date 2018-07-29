@@ -40,39 +40,10 @@
 
     <body>
         <div class="overlay"></div>
-        <input type="hidden" id="hm" value="<?= $isBonusAvailable ? $honeyBonus : 'undefined' ?>" >
 
         {% include 'layout/block/menu.html.twig' %}
 
-        <header class="header">
-            <div class="container">
-                <div class="header__wrap">
-                    <div class="header__block d-xl-none">
-                        <i class="icon_menu c-main fs-17 pointer"></i>
-                    </div>
-                    <div class="header__block header__block_logo">
-                        <img class="logo" src="{{ asset('assets/img/logo.png') }}" alt=""/>
-                    </div>
-
-
-                        <a href="" target="_blank" title="Войти" class="header__block header__block_fs0 link link_header">
-                            <i class="icon_login c-main fs-19 mr-0 mr-md-3"></i>Войти
-                        </a>
-                        <a href="" target="_blank" title="Зарегистрироваться" class="header__block header__block_exit link link_header d-none d-lg-flex">
-                            <i class="icon_registration c-main fs-19 mr-0 mr-md-3"></i>Зарегистрироваться
-                        </a>
-
-                        {#<div class="header__block d-none d-xl-flex">#}
-                            {#<i class="icon_user c-main fs-22 mr-0 mr-md-3"></i><?= $user->email ?>#}
-                        {#</div>#}
-
-                        {#<a href="<?= Url::to(Yii::$app->params['affiliateHost']) ?>" target="_blank" title="На главную" class="header__block header__block_exit link link_header">#}
-                            {#<i class="icon_back c-main fs-19 mr-0 mr-md-3"></i>Назад#}
-                        {#</a>#}
-
-                </div>
-            </div>
-        </header>
+        {% include 'layout/block/header.html.twig' %}
 
         {% block content %}{% endblock %}
 
