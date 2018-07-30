@@ -1,7 +1,7 @@
 .btn{
     width: 100%;
     border-radius: 3px;
-    background-color: $main-color;
+    background-color: $main-highlight;
     color: #000000;
     font-size: 1.2rem;
     font-weight: 400;
@@ -17,7 +17,7 @@
     &:hover, &:focus, &:active{
         text-decoration: none;
         outline: none;
-        background-color: lighten($main-color, 5%);
+        background-color: lighten($main-highlight, 5%);
         border-color: transparent;
     }
 
@@ -46,7 +46,7 @@
         font-size: 1.4rem;
         
         &:hover{
-            background: $main-color;
+            background: $secondary-color;
             color: #010101;
         }
     }

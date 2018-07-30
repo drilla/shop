@@ -42,7 +42,7 @@
             line-height: 1;
 
             > a{
-                color: $text-color-grey;
+                color: $main-color;
                 padding: 1rem;
                 font-weight: 600;
                 font-size: 1.2rem;
@@ -55,7 +55,7 @@
                 transition: .3s all ease-in-out;
 
                 &:hover{
-                    background-color: #f8f8f8;
+                    background-color: $main-highlight;
                 }
 
                 &.active{
