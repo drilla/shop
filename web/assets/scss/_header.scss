@@ -16,12 +16,16 @@
     }
 
     &__block{
-        border-left: 1px solid $border-color;
-        border-right: 1px solid $border-color;
         align-self: stretch;
         display: flex;
         align-items: center;
         padding: 0 2.7rem;
+        font-weight: 600;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        text-decoration: none;
+        transition: .3s all ease-in-out;
 
         &_logo{
             border: none;
@@ -78,23 +82,11 @@
         box-shadow: none;
 
         &__block{
-            padding: 0 5rem 0 2rem;
+            padding: 0 2rem 0 2rem;
 
-            &_exit{
-                border-left: none;
-            }
 
             &_hb{
                 min-width: 20rem;
-            }
-
-            &_mngr{
-                min-width: 40rem;
-            }
-
-            &_footer{
-                border: none;
-                border-left: 1px solid $border-color;
             }
 
             &_logo{
