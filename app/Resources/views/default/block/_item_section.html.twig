@@ -15,40 +15,39 @@
 {#$formatter->thousandSeparator=' '#}
 {#?>#}
 
-<div class="container">
-    <h2 class="h2">{{ category }}</h2>
+{% if products %}
+    <div class="container">
+        <h2 class="h2">{{ category }}</h2>
 
-    <div class="row no-gutters">
+        <div class="row no-gutters">
 
-        {#<?php foreach ($items as $item) : ?>#}
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                <div class="card card_big">
-                    <div class="card__img">
-                        <img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
-                             data-src="{{ asset('img/gifts/books.jpg') }}"
-                             alt=""/>
-                    </div>
-                    <div class="card__header">
-                        {{ 'name item' }}
-                    </div>
-                    <div class="card__body">
-                        <div class="lead lead_big">{{ '1000' }} HM</div>
+            {#<?php foreach ($items as $item) : ?>#}
+            {% for product in products %}
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card card_big">
+                        <div class="card__img">
+                            <img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
+                                 data-src="{{ asset('img/gifts/books.jpg') }}"
+                                 alt="{{ product.name }}"/>
+                        </div>
+                        <div class="card__header">
+                            {{ product.name }}
+                        </div>
+                        <div class="card__body">
+                            <div class="lead lead_big">{{ product.price }} HM</div>
 
-                        <button class="btn btn_white order js-order"
-                                data-url="/order"
-                                data-price="{{ '1000' }}"
-                        >Купить</button>
 
-                            {#<button class="btn btn_white btn_inactive order not-selectable"#}
-                                    {#data-modal-content="<p class='fs-20 mb-0'>Доступен при заказе других товаров</p>"#}
-                                    {#data-container-selector="#commonModalContainer"#}
-                                    {#data-togge="modal" data-target="#onlyWithGiftModal">#}
-                                {#В подарок!#}
-                            {#</button>#}
+                            <button class="btn btn_white btn_inactive order not-selectable"
+                                    data-togge="modal"
+                                    data-target="#callFormModal">
+                                Купить
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {#<?php endforeach; ?>#}
+            {% endfor %}
+            {#<?php endforeach; ?>#}
 
+        </div>
     </div>
-</div>
+{% endif %}

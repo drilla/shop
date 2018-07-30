@@ -2,8 +2,13 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 class Product
 {
+    const CAT_JOINT = 1;
+    const CAT_CREAM = 2;
+    const CAT_WRINKLES = 3;
 
     /** @var  int | null */
     private $id = null;
@@ -16,6 +21,15 @@ class Product
 
     /** @var string */
     private $description;
+
+    /** @var int */
+    private $category;
+
+    /** @var string */
+    private $picture;
+
+    /** @var  UploadedFile */
+    private $imageFile;
 
     public function getName() {
         return $this->name;
@@ -51,5 +65,32 @@ class Product
     public function setId(int $id) : self {
         $this->id = $id;
         return $this;
+    }
+
+    public function getCategory(): ?int {
+        return $this->category;
+    }
+
+    public function setCategory(int $category): Product {
+        $this->category = $category;
+        return $this;
+    }
+
+    public function getPicture(): ?string {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): Product {
+        $this->picture = $picture;
+        return $this;
+    }
+
+    public function setImageFile(UploadedFile $imageFile): Product {
+        $this->imageFile = $imageFile;
+        return $this;
+    }
+
+    public function getImageFile(): ?UploadedFile {
+        return $this->imageFile;
     }
 }

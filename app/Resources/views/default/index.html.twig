@@ -1,3 +1,5 @@
+{# @controller AppBundle:Default:index #}
+
 {% extends "layout/base.html.twig" %}
 
 
@@ -12,11 +14,11 @@
 </section>
 
 <section class="sec sec_3 aos aos_right" id="joint">
-    {% include 'default/block/_item_section.html.twig' with {category: 'Суставы'} %}
+    {% include 'default/block/_item_section.html.twig' with {category: 'Суставы', products : productsJoint} only %}
 </section>
 
 <section class="sec sec_4 aos aos_right" id="beauty">
-    {% include 'default/block/_item_section.html.twig' with {category: 'Морщины'} %}
+    {% include 'default/block/_item_section.html.twig'with {category: 'Морщины', products : productsWrinkles} only %}
 </section>
 
 <section class="sec sec_points" id="actions">
@@ -36,5 +38,7 @@
 {% include 'default/modal/_points.html.twig' %}
 
 {% include 'default/modal/_common.html.twig' %}
+
+{% include 'default/modal/_call_form.html.twig' %}
 
 {% endblock %}
