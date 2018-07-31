@@ -3,7 +3,6 @@
 namespace Admin;
 
 use AppBundle\Entity\Product;
-use AppBundle\Service\FileUploader;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -14,12 +13,31 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 class ProductAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper) : void {
+        // get the current Product instance
+
+        /** @var Product $product */
+        $product = $this->getSubject();
+
+        // use $fileFieldOptions so we can add other options to the field
+        $fileFieldOptions = ['required' => false];
+        if ($product && $product->getPicture()) {
+            // get the container so the full path to the image can be set
+
+            $fileUploader = $this->getConfigurationPool()->getContainer()->get('file_uploader');
+
+            $fullPath =  '/uploads/product/' . $product->getPicture();
+
+            // add a 'help' option containing the preview's img tag
+            $fileFieldOptions['help'] = '<img width="200" height="200" src="'.$fullPath.'" class="admin-preview" />';
+        }
+
+
         $formMapper
             ->add('name', TextType::class)
             ->add('price', TextType::class)
             ->add('category', TextType::class)
             ->add('description', TextType::class)
-            ->add('imageFile', FileType::class)
+            ->add('imageFile', FileType::class, $fileFieldOptions)
         ;
 
 //        $builder = $formMapper->getFormBuilder();

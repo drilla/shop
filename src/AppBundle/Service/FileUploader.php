@@ -22,7 +22,7 @@ class FileUploader
         return $fileName;
     }
 
-    public function getTargetDirectory() {
+    public function getTargetDirectory(): string {
         return $this->targetDirectory;
     }
 
