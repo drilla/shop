@@ -16,21 +16,21 @@ class ProductAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper) : void {
         // get the current Product instance
 
-        /** @var Product $product */
-        $product = $this->getSubject();
-
-        // use $fileFieldOptions so we can add other options to the field
-        $fileFieldOptions = ['required' => false];
-        if ($product && $product->getPicture()) {
-            // get the container so the full path to the image can be set
-
-            $fileManager = $this->getConfigurationPool()->getContainer()->get('file_manager');
-
-            $fullPath =  $fileManager->getProductImageUrl($product);
-
-            // add a 'help' option containing the preview's img tag
-            $fileFieldOptions['help'] = '<img width="200" height="200" src="'.$fullPath.'" class="admin-preview" />';
-        }
+//        /** @var Product $product */
+//        $product = $this->getSubject();
+//
+//        // use $fileFieldOptions so we can add other options to the field
+//        $fileFieldOptions = ['required' => false];
+//        if ($product && $product->getPicture()) {
+//            // get the container so the full path to the image can be set
+//
+//            $fileManager = $this->getConfigurationPool()->getContainer()->get('file_manager');
+//
+//            $fullPath =  $fileManager->getImageUrl($product);
+//
+//            // add a 'help' option containing the preview's img tag
+//            $fileFieldOptions['help'] = '<img width="200" height="200" src="'.$fullPath.'" class="admin-preview" />';
+//        }
 
 
         $formMapper
@@ -38,7 +38,7 @@ class ProductAdmin extends AbstractAdmin
             ->add('price', TextType::class)
             ->add('category', TextType::class)
             ->add('description', TextType::class)
-            ->add('imageFile', FileType::class, $fileFieldOptions)
+//            ->add('imageFile', FileType::class, $fileFieldOptions)
         ;
 
 //        $builder = $formMapper->getFormBuilder();
@@ -61,26 +61,26 @@ class ProductAdmin extends AbstractAdmin
         $listMapper->addIdentifier('description');
     }
 
-    /** @param Product $product */
-    public function postPersist($product) {
-        $this->manageFileUpload($product);
-    }
-
-    /** @param Product $product */
-    public function preUpdate($product) {
-        $this->manageFileUpload($product);
-    }
-
-    private function manageFileUpload(Product $product) {
-        $file = $product->getImageFile();
-
-        if ($file) {
-
-            //upload file
-
-            $fileManager = $this->getConfigurationPool()->getContainer()->get('file_manager');
-            $fileName = $fileManager->uploadProductImage($file, $product);
-            $product->setPicture($fileName);
-        }
-    }
+//    /** @param Product $product */
+//    public function postPersist($product) {
+//        $this->manageFileUpload($product);
+//    }
+//
+//    /** @param Product $product */
+//    public function preUpdate($product) {
+//        $this->manageFileUpload($product);
+//    }
+//
+//    private function manageFileUpload(Product $product) {
+//        $file = $product->getImageFile();
+//
+//        if ($file) {
+//
+//            //upload file
+//
+//            $fileManager = $this->getConfigurationPool()->getContainer()->get('file_manager');
+//            $fileName = $fileManager->uploadImage($file, $product);
+//            $product->setPicture($fileName);
+//        }
+//    }
 }

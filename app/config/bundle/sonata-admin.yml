@@ -11,10 +11,11 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Product }
         public: true
-    file_uploader:
-        class: AppBundle\Service\FileUploader
-        arguments:
-            $uploadDir: '%upload_directory%'
+    admin.image:
+        class: Admin\ImageAdmin
+        arguments: [~, AppBundle\Entity\Image, ~]
+        tags:
+            - { name: sonata.image, manager_type: orm, label: Image }
         public: true
     file_manager:
         class: AppBundle\Service\FileManager

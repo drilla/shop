@@ -1,0 +1,31 @@
+AppBundle\Entity\Image:
+    type: entity
+    table: image
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        fileName:
+            column: file_name
+            type: string
+            length: 255
+        productId:
+            column: product_id
+            type: integer
+        fileName:
+            column: file_name
+            type: string
+            length: 255
+        isFace:
+            column: is_face
+            type: boolean
+            options:
+              default: false
+    oneToOne:
+        product:
+            targetEntity: AppBundle\Entity\Product
+            joinColumn:
+              name: id
+              referencedColumnName: product_id
+              onDelete: RESTRICT #тк сначала надо стереть картинки с диска, а база это не контролирует

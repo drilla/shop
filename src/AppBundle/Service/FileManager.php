@@ -2,13 +2,23 @@
 
 namespace AppBundle\Service;
 
+use AppBundle\Entity\Image;
 use AppBundle\Entity\Product;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+/**
+ * Осущетвляет загрузку файлов в нужное место
+ * Знает как найти нужный файл
+ * Знает, как построить url к нужному файлу
+ *
+ * todo не знаю как распилить ответственность.
+ */
 class FileManager
 {
     /** @var  string */
     private $uploadDir;
+
+    /** @var string  */
     private $baseUrl;
 
     public function __construct(string $uploadDir, string $baseUrl) {
@@ -16,8 +26,8 @@ class FileManager
         $this->baseUrl = $baseUrl;
     }
 
-    public function uploadProductImage(UploadedFile $file, Product $product) : string {
-        $dir = $this->getProductUploadDir($product);
+    public function uploadImage(UploadedFile $file, Image $image) : string {
+        $dir = $this->getProductUploadDir($image);
 
         return $this->upload($file, $dir);
     }
@@ -31,16 +41,16 @@ class FileManager
         return $fileName;
     }
 
-    public function getUploadDir(string $subDir): string {
+    public function getProductUploadDir(Image $image) : string {
+        return $this->_getUploadDir('product/'. $image->getProductId());
+    }
+
+    public function getImageUrl(Image $image) : string {
+        return $this->baseUrl . '/product/'.$image->getProductId() . '/' . $image->getFileName();
+    }
+
+    protected function _getUploadDir(string $subDir): string {
         return $this->uploadDir . DIRECTORY_SEPARATOR . $subDir;
-    }
-
-    public function getProductUploadDir(Product $product) : string {
-        return $this->getUploadDir('product/'. $product->getId());
-    }
-
-    public function getProductImageUrl(Product $product) : string {
-        return $this->baseUrl . '/product/'.$product->getId() . '/' . $product->getPicture();
     }
 
     protected function _getRandomName(UploadedFile $file) : string {
