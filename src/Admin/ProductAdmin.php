@@ -3,6 +3,7 @@
 namespace Admin;
 
 use AppBundle\Entity\Product;
+use AppBundle\Service\FileUploader;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -51,11 +52,15 @@ class ProductAdmin extends AbstractAdmin
         $this->manageFileUpload($product);
     }
 
-    private function manageFileUpload(Product $product)
-    {
-        if ($product->getImageFile()) {
-            //upload file
+    private function manageFileUpload(Product $product) {
+        $file = $product->getImageFile();
 
+        if ($file) {
+
+            //upload file
+            $fileUploader = $this->getConfigurationPool()->getContainer()->get('file_uploader');
+
+            $fileName = $fileUploader->upload($file);
             $product->setPicture($fileName);
         }
     }
