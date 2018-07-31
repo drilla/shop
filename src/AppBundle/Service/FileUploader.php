@@ -9,21 +9,21 @@ class FileUploader
     /** @var  string */
     private $targetDirectory;
 
-    public function __construct(string $targetDirectory) {
-        $this->targetDirectory = $targetDirectory;
+    public function __construct(string $uploadDir) {
+        $this->targetDirectory = $uploadDir;
     }
 
-    public function upload(UploadedFile $file) {
+    public function upload(UploadedFile $file, string $subDir) {
 
         $fileName = $this->_getRandomName($file);
 
-        $file->move($this->getTargetDirectory(), $fileName);
+        $file->move($this->getTargetDirectory($subDir), $fileName);
 
         return $fileName;
     }
 
-    public function getTargetDirectory(): string {
-        return $this->targetDirectory;
+    public function getTargetDirectory(string $subDir): string {
+        return $this->targetDirectory . DIRECTORY_SEPARATOR . $subDir;
     }
 
     protected function _getRandomName(UploadedFile $file) : string {

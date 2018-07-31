@@ -19,4 +19,4 @@ parameters:
     secret: ThisTokenIsNotSoSecretChangeIt
 
     # куда загружать файлы
-    image_directory: '%kernel.project_dir%/web/uploads/product'
+    upload_directory: '%kernel.project_dir%/web/uploads'

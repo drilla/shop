@@ -14,5 +14,11 @@ services:
     file_uploader:
         class: AppBundle\Service\FileUploader
         arguments:
-            $targetDirectory: '%image_directory%'
+            $uploadDir: '%upload_directory%'
+        public: true
+    file_manager:
+        class: AppBundle\Service\FileManager
+        arguments:
+            $uploadDir: '%upload_directory%'
+            $baseUrl: '/uploads'
         public: true

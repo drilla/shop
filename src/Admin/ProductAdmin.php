@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
@@ -23,9 +24,9 @@ class ProductAdmin extends AbstractAdmin
         if ($product && $product->getPicture()) {
             // get the container so the full path to the image can be set
 
-            $fileUploader = $this->getConfigurationPool()->getContainer()->get('file_uploader');
+            $fileManager = $this->getConfigurationPool()->getContainer()->get('file_manager');
 
-            $fullPath =  '/uploads/product/' . $product->getPicture();
+            $fullPath =  $fileManager->getProductImageUrl($product);
 
             // add a 'help' option containing the preview's img tag
             $fileFieldOptions['help'] = '<img width="200" height="200" src="'.$fullPath.'" class="admin-preview" />';
@@ -61,7 +62,7 @@ class ProductAdmin extends AbstractAdmin
     }
 
     /** @param Product $product */
-    public function prePersist($product) {
+    public function postPersist($product) {
         $this->manageFileUpload($product);
     }
 
@@ -76,9 +77,9 @@ class ProductAdmin extends AbstractAdmin
         if ($file) {
 
             //upload file
-            $fileUploader = $this->getConfigurationPool()->getContainer()->get('file_uploader');
 
-            $fileName = $fileUploader->upload($file);
+            $fileManager = $this->getConfigurationPool()->getContainer()->get('file_manager');
+            $fileName = $fileManager->uploadProductImage($file, $product);
             $product->setPicture($fileName);
         }
     }
