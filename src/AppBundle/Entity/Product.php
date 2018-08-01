@@ -34,9 +34,9 @@ class Product
     /** @var Image[] */
     private $images = [];
 
-    public function setImages(array $images): Product {
-        $this->images = $images;
-        return $this;
+    /** @return Image[] */
+    public function getImages(): array {
+        return $this->images;
     }
 
     public function getName() {
@@ -100,10 +100,5 @@ class Product
 
     public function getImageFile(): ?UploadedFile {
         return $this->imageFile;
-    }
-
-    /** @return Image[] */
-    public function getImages(): array {
-        return $this->images;
     }
 }

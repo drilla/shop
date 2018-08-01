@@ -16,3 +16,7 @@ AppBundle\Entity\Product:
             type: text
         category:
             type: integer
+    oneToMany:
+        images:
+            targetEntity: AppBundle\Entity\Image
+            mappedBy: product

@@ -22,3 +22,12 @@ AppBundle\Entity\Image:
             type: boolean
             options:
               default: false
+
+    manyToOne:
+        product:
+            targetEntity: AppBundle\Entity\Product
+            inversedBy: images
+            joinColumn:
+              name: product_id
+              referencedColumnName: id
+              onDelete: RESTRICT #тк сначала надо стереть картинки с диска, а база это не контролирует
