@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Product
@@ -32,10 +33,13 @@ class Product
     private $imageFile;
 
     /** @var Image[] */
-    private $images = [];
+    private $images;
 
-    /** @return Image[] */
-    public function getImages(): array {
+    public function __construct() {
+        $this->images = new ArrayCollection();
+    }
+
+    public function getImages(): ArrayCollection {
         return $this->images;
     }
 

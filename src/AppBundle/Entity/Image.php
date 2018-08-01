@@ -10,9 +10,6 @@ class Image
     /** @var  int */
     private $id;
 
-    /** @var  int */
-    private $productId;
-
     /** @var  string */
     private $fileName;
 
@@ -20,10 +17,14 @@ class Image
     private $file;
 
     /** @var  bool */
-    private $isFace;
+    private $isFace = false;
 
     /** @var  Product */
     private $product;
+
+    public function __construct() {
+        $this->product = new Product();
+    }
 
     public function getProduct(): Product {
         return $this->product;
@@ -52,21 +53,12 @@ class Image
         return $this;
     }
 
-    public function getFile(): UploadedFile {
+    public function getFile(): ?UploadedFile {
         return $this->file;
     }
 
     public function setFile(UploadedFile $file): Image {
         $this->file = $file;
-        return $this;
-    }
-
-    public function getProductId() : ?int {
-        return $this->productId;
-    }
-
-    public function setProductId($productId) : Image {
-        $this->productId = $productId;
         return $this;
     }
 

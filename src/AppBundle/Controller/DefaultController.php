@@ -15,7 +15,6 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request, EntityManagerInterface $manager)
     {
-
         $products = $manager->getRepository(Product::class)->findAll();
 
         // replace this example code with whatever you need

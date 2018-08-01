@@ -15,7 +15,7 @@ services:
         class: Admin\ImageAdmin
         arguments: [~, AppBundle\Entity\Image, ~]
         tags:
-            - { name: sonata.image, manager_type: orm, label: Image }
+            - { name: sonata.admin, manager_type: orm, label: Image }
         public: true
     file_manager:
         class: AppBundle\Service\FileManager

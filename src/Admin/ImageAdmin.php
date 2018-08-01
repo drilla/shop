@@ -7,6 +7,9 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\ModelListType;
+use Sonata\AdminBundle\Form\Type\ModelType;
+use Sonata\AdminBundle\Form\Type\ModelTypeList;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -32,35 +35,38 @@ class ImageAdmin extends AbstractAdmin
             $fileFieldOptions['help'] = '<img width="200" height="200" src="' . $fullPath . '" class="admin-preview" />';
         }
 
+        $productFieldOptions= ['property' => 'name'];
+
 
         $formMapper
-            ->add('productId', TextType::class)
-            ->add('isFace', CheckboxType::class)
-            ->add('imageFile', FileType::class, $fileFieldOptions)
+            ->add('product', ModelType::class, $productFieldOptions)
+            ->add('isFace', CheckboxType::class, ['required' => false])
+            ->add('file', FileType::class, $fileFieldOptions)
         ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $dataGridMapper) : void {
         $dataGridMapper
-            ->add('productId')
+            //->add('product')
             ->add('isFace')
+            ->add('fileName')
         ;
     }
 
     protected function configureListFields(ListMapper $listMapper) : void {
         $listMapper->addIdentifier('name');
-        $listMapper->addIdentifier('productId');
+        //$listMapper->addIdentifier('product');
         $listMapper->addIdentifier('isFace');
     }
 
-    /** @param Image $product */
-    public function postPersist($product) {
-        $this->manageFileUpload($product);
+    /** @param Image $image */
+    public function prePersist($image) {
+        $this->manageFileUpload($image);
     }
 
-    /** @param Image $product */
-    public function preUpdate($product) {
-        $this->manageFileUpload($product);
+    /** @param Image $image */
+    public function preUpdate($image) {
+        $this->manageFileUpload($image);
     }
 
     private function manageFileUpload(Image $image) {
@@ -69,7 +75,6 @@ class ImageAdmin extends AbstractAdmin
         if ($file) {
 
             //upload file
-
             $fileManager = $this->getConfigurationPool()->getContainer()->get('file_manager');
             $fileName = $fileManager->uploadImage($file, $image);
             $image->setFileName($fileName);

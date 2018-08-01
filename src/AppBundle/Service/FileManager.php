@@ -42,11 +42,11 @@ class FileManager
     }
 
     public function getProductUploadDir(Image $image) : string {
-        return $this->_getUploadDir('product/'. $image->getProductId());
+        return $this->_getUploadDir('product/'. $image->getProduct()->getId());
     }
 
     public function getImageUrl(Image $image) : string {
-        return $this->baseUrl . '/product/'.$image->getProductId() . '/' . $image->getFileName();
+        return $this->baseUrl . '/product/'.$image->getProduct()->getId() . '/' . $image->getFileName();
     }
 
     protected function _getUploadDir(string $subDir): string {

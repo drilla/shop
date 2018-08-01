@@ -10,24 +10,16 @@ AppBundle\Entity\Image:
             column: file_name
             type: string
             length: 255
-        productId:
-            column: product_id
-            type: integer
-        fileName:
-            column: file_name
-            type: string
-            length: 255
+#        productId:
+#            column: product_id
+#            type: integer
         isFace:
             column: is_face
             type: boolean
             options:
               default: false
-
     manyToOne:
         product:
             targetEntity: AppBundle\Entity\Product
             inversedBy: images
-            joinColumn:
-              name: product_id
-              referencedColumnName: id
-              onDelete: RESTRICT #тк сначала надо стереть картинки с диска, а база это не контролирует
+            onDelete: RESTRICT #тк сначала надо стереть картинки с диска, а база это не контролирует
