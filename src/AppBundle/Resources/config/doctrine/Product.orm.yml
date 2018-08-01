@@ -16,6 +16,3 @@ AppBundle\Entity\Product:
             type: text
         category:
             type: integer
-#        picture:
-#            type: string
-#            length: 255

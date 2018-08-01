@@ -22,6 +22,18 @@ class Image
     /** @var  bool */
     private $isFace;
 
+    /** @var  Product */
+    private $product;
+
+    public function getProduct(): Product {
+        return $this->product;
+    }
+
+    public function setProduct(Product $product): Image {
+        $this->product = $product;
+        return $this;
+    }
+
     public function getId(): int {
         return $this->id;
     }
