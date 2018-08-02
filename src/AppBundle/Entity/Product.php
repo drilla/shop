@@ -11,6 +11,12 @@ class Product
     const CAT_CREAM = 2;
     const CAT_WRINKLES = 3;
 
+    const CATEGORIES = [
+        self::CAT_JOINT,
+        self::CAT_CREAM,
+        self::CAT_WRINKLES,
+    ];
+
     /** @var  int | null */
     private $id = null;
 

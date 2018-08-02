@@ -3,17 +3,13 @@
 namespace Admin;
 
 use AppBundle\Entity\Image;
-use AppBundle\Entity\Product;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Form\Type\ModelType;
-use Sonata\AdminBundle\Form\Type\ModelTypeList;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ImageAdmin extends AbstractAdmin
 {
@@ -37,7 +33,6 @@ class ImageAdmin extends AbstractAdmin
         }
 
         $productFieldOptions= ['property' => 'name'];
-
 
         $formMapper
             ->add('product', ModelType::class, $productFieldOptions)
