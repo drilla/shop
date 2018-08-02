@@ -3,6 +3,7 @@
 namespace Admin;
 
 use AppBundle\Entity\Image;
+use AppBundle\Entity\Product;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -47,7 +48,7 @@ class ImageAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $dataGridMapper) : void {
         $dataGridMapper
-            //->add('product')
+            ->add('product', 'doctrine_orm_model_autocomplete'  ,[], null, ['property'=>'title'] )
             ->add('isFace')
             ->add('fileName')
         ;
@@ -55,7 +56,7 @@ class ImageAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper) : void {
         $listMapper->addIdentifier('name');
-        //$listMapper->addIdentifier('product');
+        $listMapper->addIdentifier('product', null, ['associated_property' => 'name']);
         $listMapper->addIdentifier('isFace');
     }
 
