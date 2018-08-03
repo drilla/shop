@@ -1,4 +1,5 @@
 {# @controller AppBundle:Default:index #}
+{# @var Product[] specialOffers#}
 
 {% extends "layout/base.html.twig" %}
 
@@ -10,7 +11,7 @@
 </section>
 
 <section class="sec sec_2 animated fadeInLeft" id="special">
-    {% include 'default/block/_special_offers.html.twig' %}
+    {% include 'default/block/_special_offers.html.twig' with {products : specialOffers} %}
 </section>
 
 <section class="sec sec_3 aos aos_right" id="joint">

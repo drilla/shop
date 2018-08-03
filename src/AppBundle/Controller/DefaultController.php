@@ -17,6 +17,7 @@ class DefaultController extends Controller
     {
         $products = $manager->getRepository(Product::class)->findAll();
 
+        $specialOffers = $products;
         // replace this example code with whatever you need
 
         $productsJoint = $manager->getRepository(Product::class)->findBy(
@@ -30,6 +31,7 @@ class DefaultController extends Controller
         return $this->render('default/index.html.twig', [
             'productsJoint'    => $productsJoint,
             'productsWrinkles' => $productsWrinkles,
+            'specialOffers'    => $specialOffers,
         ]);
     }
 }

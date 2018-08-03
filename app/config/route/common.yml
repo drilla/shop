@@ -5,3 +5,9 @@ app:
 sonata_admin:
     resource: 'bundle/'
     type: directory
+
+product_image:
+    path:      '%upload_base_url%/product/{product_id}/{file_name}'
+    requirements:
+        product_id: '\d+'
+        file_name: '.+'

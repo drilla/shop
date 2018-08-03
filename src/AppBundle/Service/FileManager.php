@@ -3,7 +3,6 @@
 namespace AppBundle\Service;
 
 use AppBundle\Entity\Image;
-use AppBundle\Entity\Product;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
@@ -18,12 +17,8 @@ class FileManager
     /** @var  string */
     private $uploadDir;
 
-    /** @var string  */
-    private $baseUrl;
-
-    public function __construct(string $uploadDir, string $baseUrl) {
+    public function __construct(string $uploadDir) {
         $this->uploadDir = $uploadDir;
-        $this->baseUrl = $baseUrl;
     }
 
     public function uploadImage(UploadedFile $file, Image $image) : string {
@@ -43,10 +38,6 @@ class FileManager
 
     public function getProductUploadDir(Image $image) : string {
         return $this->_getUploadDir('product/'. $image->getProduct()->getId());
-    }
-
-    public function getImageUrl(Image $image) : string {
-        return $this->baseUrl . '/product/'.$image->getProduct()->getId() . '/' . $image->getFileName();
     }
 
     protected function _getUploadDir(string $subDir): string {

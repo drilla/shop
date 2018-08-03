@@ -24,9 +24,10 @@ class ImageAdmin extends AbstractAdmin
         if ($image && $image->getFileName()) {
             // get the container so the full path to the image can be set
 
-            $fileManager = $this->getConfigurationPool()->getContainer()->get('file_manager');
-
-            $fullPath = $fileManager->getImageUrl($image);
+            $fullPath =  $this->getConfigurationPool()->getContainer()->get('router')->generate('product_image', [
+                'product_id' => $image->getProduct()->getId(),
+                'file_name' => $image->getFileName(),
+            ]);
 
             // add a 'help' option containing the preview's img tag
             $fileFieldOptions['help'] = '<img width="200" height="200" src="' . $fullPath . '" class="admin-preview" />';

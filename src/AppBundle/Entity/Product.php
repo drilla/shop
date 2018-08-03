@@ -3,7 +3,9 @@
 namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Selectable;
 
 class Product
 {
@@ -35,9 +37,6 @@ class Product
     /** @var string */
     private $picture;
 
-    /** @var  UploadedFile */
-    private $imageFile;
-
     /** @var Image[] */
     private $images;
 
@@ -45,7 +44,7 @@ class Product
         $this->images = new ArrayCollection();
     }
 
-    public function getImages(): ArrayCollection {
+    public function getImages(): Collection {
         return $this->images;
     }
 
@@ -103,12 +102,22 @@ class Product
         return $this;
     }
 
-    public function setImageFile(UploadedFile $imageFile): Product {
-        $this->imageFile = $imageFile;
-        return $this;
-    }
+    public function getFaceImage() : ?Image {
+        $criteria = new Criteria();
 
-    public function getImageFile(): ?UploadedFile {
-        return $this->imageFile;
+        $criteria->where(Criteria::expr()->eq('isFace', true));
+
+        $imagesCollection = $this->getImages();
+
+        if (! ($imagesCollection instanceof Selectable) ) throw new \Exception('Must use selectable interface here.');
+
+        $faceImage =  $imagesCollection->matching($criteria)->first();
+
+        if (!$faceImage) {
+            $faceImage = new Image();
+            $faceImage->setFileName('');
+        }
+
+        return $faceImage ? $faceImage : null;
     }
 }

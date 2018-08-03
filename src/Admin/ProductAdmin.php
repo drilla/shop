@@ -19,7 +19,6 @@ class ProductAdmin extends AbstractAdmin
             ->add('price', TextType::class)
             ->add('category', ChoiceType::class, ['choices' => array_flip(ProductHelper::categoryLabels())])
             ->add('description', TextType::class)
-//            ->add('imageFile', FileType::class, $fileFieldOptions)
         ;
 
 //        $builder = $formMapper->getFormBuilder();
@@ -36,14 +35,15 @@ class ProductAdmin extends AbstractAdmin
     }
 
     protected function configureListFields(ListMapper $listMapper) : void {
-        $listMapper->addIdentifier('id');
-        $listMapper->addIdentifier('name');
-        $listMapper->add('price');
-        $listMapper->add('category', 'choice', [
-            'choices' => ProductHelper::categoryLabels(),
-            'editable' => true,
-            ]
-        );
-        $listMapper->add('description');
+        $listMapper
+            ->addIdentifier('id')
+            ->addIdentifier('name')
+            ->add('price', 'text', ['editable' => true])
+            ->add('category', 'choice', [
+                    'choices'  => ProductHelper::categoryLabels(),
+                    'editable' => true,
+                ]
+            )
+            ->add('description');
     }
 }

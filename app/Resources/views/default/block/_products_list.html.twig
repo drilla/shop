@@ -1,29 +1,24 @@
-<div class="card cursor-pointer"
-     data-modal-href=""
-        {#data-modal-href="<?= \yii\helpers\Url::toRoute(['honey/offer-family-bonuses', 'id' => $family->id]) ?>"#}
-     data-toggle="modal"
-     data-target="#modalPoints"
-     data-container-selector="#modalPointsBody"
->
-    <div class="card__img">
-        <img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
-             data-src="" alt=""/>
-        {#data-src="<?= $family->getImageUrl() ?>" alt=""/>#}
-    </div>
-    <div class="card__header">
-        <div>
-            {#<?php foreach ($family->getCountryCategories() as $category) : ?>#}
+{# @var \AppBundle\Entity\Product product #}
 
-            <img class="flag b-lazy"
-                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
-                 data-src=""
-                    {#data-src="<?= helpers\Country::categoryFlagUrl($category) ?>" #}
-                 alt=""/>
-            {#<?php endforeach; ?>#}
+{% for product in specialOffers  %}
+
+    <div class="card cursor-pointer"
+         data-modal-href=""
+            {#data-modal-href="<?= \yii\helpers\Url::toRoute(['honey/offer-family-bonuses', 'id' => $family->id]) ?>"#}
+         data-toggle="modal"
+         data-target="#modalPoints"
+         data-container-selector="#modalPointsBody"
+    >
+        <div class="card__img">
+            <img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
+                 data-src="{{ url('product_image', {'product_id':product.id, 'file_name' : product.faceImage.fileName}) }}"
+                alt=""/>
         </div>
-        <span class="card__link">{{ 'offer_name' }}</span>
+        <div class="card__header">
+            <span class="card__link">{{ product.name }}</span>
+        </div>
+        <div class="card__body">
+            <div class="lead">{{ product.price | number_format(thousand_sep=' ') ~ ' Руб' }}</div>
+        </div>
     </div>
-    <div class="card__body">
-        <div class="lead">1 апрув = до {{ 1100 }} HM</div>
-    </div>
-</div>
+{% endfor %}
