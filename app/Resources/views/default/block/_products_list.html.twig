@@ -11,7 +11,7 @@
     >
         <div class="card__img">
             <img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
-                 data-src="{{ url('product_image', {'product_id':product.id, 'file_name' : product.faceImage.fileName}) }}"
+                 data-src="{{ path('product_image', {'product_id':product.id, 'file_name': product.faceImage.fileName})  | imagine_filter('thumb_120') }}"
                 alt=""/>
         </div>
         <div class="card__header">
