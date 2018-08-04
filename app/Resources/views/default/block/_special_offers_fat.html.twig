@@ -18,7 +18,7 @@
                 {% for productPair in productPairs %}
 
                     <div class="d-flex flex-column">
-                        {% include 'default/block/_product_card.html.twig' with {additionalClass:'ml-3', product: productPair[0]} only %}
+                        {% include 'default/block/_product_card.html.twig' with {product: productPair[0]} only %}
 
                         {% if productPair|length is same as(2) %}
                             {% include 'default/block/_product_card.html.twig' with {additionalClass:'ml-3', product: productPair[1]} only %}

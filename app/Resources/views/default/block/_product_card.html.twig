@@ -1,5 +1,5 @@
 
-<div class="card card_points {{ additionalClass }}">
+<div class="card card_points {{ additionalClass | default('') }}">
     <div class="card__img">
         <img class="b-lazy image-fluid"
              src="{{ pixel }}"
