@@ -1,21 +1,3 @@
-{#<?php#}
-{#/**#}
- {#* @var \yii\web\View  $this#}
- {#*/#}
-
-{#use \common\models\ar;#}
-
-{#$mainOfferFamily =ar\OfferHoneyFamily::findMain();#}
-
-{#//получаем и сортируем по цене#}
-{#$families = ar\OfferHoneyFamily::findAll(['is_main' => false]);#}
-{#ar\OfferHoneyFamily::sortByMaxValue($families);#}
-
-{#//разбиваем на пары#}
-{#$offerFamilyPairs = \common\helpers\ArrayHelper::toChunks($families, 2);#}
-
-{#?>#}
-
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -26,25 +8,24 @@
             <div class="d-flex pb-4 pt-4 scroll-x" style="overflow-x: auto;">
 
                     <div class="d-flex flex-column">
-                        {% include 'default/block/_product_card.html.twig' with {additionalClass:'card_points_big'} %}
+                        {% include 'default/block/_product_card.html.twig' with {
+                            additionalClass:'card_points_big',
+                            product: mainProduct}
+                        only
+                        %}
                     </div>
 
+                {% for productPair in productPairs %}
 
                     <div class="d-flex flex-column">
-                        {% include 'default/block/_product_card.html.twig' with {additionalClass:'ml-3'} %}
-                        {% include 'default/block/_product_card.html.twig' with {additionalClass:'ml-3'} %}
+                        {% include 'default/block/_product_card.html.twig' with {additionalClass:'ml-3', product: productPair[0]} only %}
+
+                        {% if productPair|length is same as(2) %}
+                            {% include 'default/block/_product_card.html.twig' with {additionalClass:'ml-3', product: productPair[1]} only %}
+                        {% endif %}
                     </div>
 
-                    <div class="d-flex flex-column">
-                        {% include 'default/block/_product_card.html.twig' with {additionalClass:'ml-3'} %}
-                        {% include 'default/block/_product_card.html.twig' with {additionalClass:'ml-3'} %}
-                    </div>
-
-                    <div class="d-flex flex-column">
-                        {% include 'default/block/_product_card.html.twig' with {additionalClass:'ml-3'} %}
-                        {% include 'default/block/_product_card.html.twig' with {additionalClass:'ml-3'} %}
-                    </div>
-
+                {% endfor %}
             </div>
         </div>
     </div>

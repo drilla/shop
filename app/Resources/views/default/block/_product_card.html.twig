@@ -2,14 +2,14 @@
 <div class="card card_points {{ additionalClass }}">
     <div class="card__img">
         <img class="b-lazy image-fluid"
-             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-             data-src="{{ asset('img/offers/cream-gemor.png') }}" alt=""/>
+             src="{{ pixel }}"
+             data-src="{{ path('product_image', {product_id: product.id, file_name: product.faceImage.fileName}) | imagine_filter('thumb_400') }}" alt=""/>
     </div>
     <div class="card__wrapper">
         <div class="card__header">
-            {{ 'text 1' }}
+            {{ product.name }}
         </div>
-        <div class="fs-16 text-uppercase mb-3 {{ additionalClass2 | default('') }}"><b>До 1000 HM</b></div>
+        <div class="fs-16 text-uppercase mb-3 {{ additionalClass2 | default('') }}"><b>{{ product.price }} ₽</b></div>
         <span class="btn btn_more"
               data-modal-href="{{ 'link to modal' }}"
               data-toggle="modal"

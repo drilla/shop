@@ -28,10 +28,30 @@ class DefaultController extends Controller
             ['category' => Product::CAT_WRINKLES]
         );
 
+        $mainProduct = $specialOffers[0];
+
+        $specialOfferPairs = [];
+        $pair = [];
+        foreach ($specialOffers as $specialOffer) {
+            if (count($pair) === 2) {
+                $specialOfferPairs[] = $pair;
+                $pair = [];
+            }
+
+            $pair[] = $specialOffer;
+        }
+
+         //добавим неполную пару
+        if (count($pair)) {
+            $specialOfferPairs[] = $pair;
+        }
+
         return $this->render('default/index.html.twig', [
             'productsJoint'    => $productsJoint,
             'productsWrinkles' => $productsWrinkles,
             'specialOffers'    => $specialOffers,
+            'specialOfferPairs'    => $specialOfferPairs,
+            'mainProduct'      => $mainProduct,
         ]);
     }
 }

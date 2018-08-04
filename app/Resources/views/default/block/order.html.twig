@@ -191,7 +191,7 @@
                         <div class="orders__block">
                             <div class="orders-item">
 
-                                <img class="orders-item__img b-lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="<?= $item->getImageUrl() ?>" alt=""/>
+                                <img class="orders-item__img b-lazy" src="{{ pixel }}" data-src="<?= $item->getImageUrl() ?>" alt=""/>
                                 <div class="orders-item__text"><?= $item->name ?></div>
 
                             </div>
@@ -218,7 +218,7 @@
                         <div class="orders__block">
                             <span class="icon_close orders__block_close js-remove-free-gift" title="Удалить"></span>
                             <div class="orders-item">
-                                <img class="orders-item__img b-lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="../md/honey/img/gifts/special.jpg" alt=""/>
+                                <img class="orders-item__img b-lazy" src="{{ pixel }}" data-src="../md/honey/img/gifts/special.jpg" alt=""/>
                                 <div class="orders-item__text">Набор всех офферов ЗДОРОВ (в подарок при заказе любого товара)</div>
                             </div>
                             <div class="orders-info">
