@@ -10,14 +10,31 @@ liip_imagine:
 
         # превьюшки для показа в карточках
         thumb_120:
-            quality: 75
+            quality: 90
             filters:
-                # create a thumbnail: set size to WxH and use the "outbound" mode
-                # to crop the image when the size ratio of the input differs
                 thumbnail: { size: [90, 120], mode: outbound }
+
         thumb_400:
             quality: 90
             filters:
-                # create a thumbnail: set size to WxH and use the "outbound" mode
-                # to crop the image when the size ratio of the input differs
                 thumbnail: { size: [400, 400], mode: outbound }
+
+        # надпись имеет пустое место внизу(2/3 картинки)
+        thumb_200_wm_topped:
+            quality: 90
+            filters:
+                thumbnail: { size: [200, 200], mode: outbound }
+                watermark: {position: bottom, size: 0.5, image: ../web/assets/img/watermark/wm-base-topped.png}
+
+        thumb_400_wm_topped:
+            quality: 90
+            filters:
+                thumbnail: { size: [400, 400], mode: outbound }
+                watermark: {position: bottom, size: 0.8, image: ../web/assets/img/watermark/wm-base-topped.png}
+
+        # надпись по самому низу
+        thumb_200_wm_base:
+            quality: 90
+            filters:
+                thumbnail: { size: [200, 200], mode: outbound }
+                watermark: {position: bottom, size: 0.5, image: ../web/assets/img/watermark/wm-base.png}

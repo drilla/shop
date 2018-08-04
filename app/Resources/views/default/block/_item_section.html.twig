@@ -27,14 +27,15 @@
                     <div class="card card_big">
                         <div class="card__img">
                             <img class="b-lazy" src="{{ pixel }}"
-                                 data-src="{{ path('product_image', {'product_id':product.id, 'file_name': product.faceImage.fileName}) | imagine_filter('thumb_400') }}"
+                                 data-src="{{ path('product_image', {'product_id':product.id, 'file_name': product.faceImage.fileName})
+                                 | imagine_filter('thumb_400_wm_topped') }}"
                                  alt="{{ product.name }}"/>
                         </div>
                         <div class="card__header">
                             {{ product.name }}
                         </div>
                         <div class="card__body">
-                            <div class="lead lead_big">{{ product.price }} Руб</div>
+                            <div class="lead lead_big">{{ product.price }} ₽</div>
 
 
                             <button class="btn btn_white btn_inactive order not-selectable"

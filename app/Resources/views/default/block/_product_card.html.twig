@@ -3,7 +3,8 @@
     <div class="card__img">
         <img class="b-lazy image-fluid"
              src="{{ pixel }}"
-             data-src="{{ path('product_image', {product_id: product.id, file_name: product.faceImage.fileName}) | imagine_filter('thumb_400') }}" alt=""/>
+             data-src="{{ path('product_image', {product_id: product.id, file_name: product.faceImage.fileName})
+             | imagine_filter('thumb_400_wm_topped') }}" alt=""/>
     </div>
     <div class="card__wrapper">
         <div class="card__header">

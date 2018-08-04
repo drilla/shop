@@ -18,7 +18,7 @@
             <span class="card__link">{{ product.name }}</span>
         </div>
         <div class="card__body">
-            <div class="lead">{{ product.price | number_format(thousand_sep=' ') ~ ' Руб' }}</div>
+            <div class="lead">{{ product.price | number_format(thousand_sep=' ')}} ₽</div>
         </div>
     </div>
 {% endfor %}
