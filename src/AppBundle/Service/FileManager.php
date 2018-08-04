@@ -6,6 +6,7 @@ use AppBundle\Entity\Image;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
+ * @author drilla
  * Осущетвляет загрузку файлов в нужное место
  * Знает куда положить загруженные файлы
  */

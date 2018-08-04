@@ -4,6 +4,9 @@ namespace AppBundle\Helper;
 
 use AppBundle\Entity\Product as ProductEntity;
 
+/**
+ * @author drilla
+ */
 class Product
 {
 

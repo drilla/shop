@@ -7,6 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Selectable;
 
+/**
+ * @author drilla
+ */
 class Product
 {
     const CAT_JOINT = 1;

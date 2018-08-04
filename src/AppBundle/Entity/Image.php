@@ -4,7 +4,10 @@ namespace AppBundle\Entity;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-/** Информация об изображении */
+/**
+ * @author drilla
+ * Информация об изображении
+ */
 class Image
 {
     /** @var  int */

@@ -6,6 +6,9 @@ namespace AppBundle\Twig;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 
+/**
+ * @author drilla
+ */
 class PixelExtension extends AbstractExtension implements GlobalsInterface
 {
     public function getGlobals() {

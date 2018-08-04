@@ -11,6 +11,9 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
+/**
+ * @author drilla
+ */
 class ProductAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper) : void {

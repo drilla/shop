@@ -11,6 +11,9 @@ use Sonata\AdminBundle\Form\Type\ModelType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
+/**
+ *  * @author drilla
+ */
 class ImageAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper) : void {
