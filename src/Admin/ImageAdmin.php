@@ -24,13 +24,20 @@ class ImageAdmin extends AbstractAdmin
         if ($image && $image->getFileName()) {
             // get the container so the full path to the image can be set
 
-            $fullPath =  $this->getConfigurationPool()->getContainer()->get('router')->generate('product_image', [
+            $serviceContainer =  $this->getConfigurationPool()->getContainer();
+
+            $fullPath =  $serviceContainer->get('router')->generate('product_image', [
                 'product_id' => $image->getProduct()->getId(),
                 'file_name' => $image->getFileName(),
             ]);
 
-            // add a 'help' option containing the preview's img tag
-            $fileFieldOptions['help'] = '<img width="200" height="200" src="' . $fullPath . '" class="admin-preview" />';
+            $imagineCacheManager = $serviceContainer->get('liip_imagine.cache.manager');
+            $resolvedPath = $imagineCacheManager->getBrowserPath($fullPath, 'thumb_400');
+
+            /*
+             * чтобы избежать изменения шаблона админки, добавляем кастомную разметку с превью
+             */
+            $fileFieldOptions['help'] = $this->_getImageMarkup($resolvedPath);
         }
 
         $productFieldOptions= ['property' => 'name'];
@@ -76,5 +83,26 @@ class ImageAdmin extends AbstractAdmin
             $fileName = $fileManager->uploadImage($file, $image);
             $image->setFileName($fileName);
         }
+    }
+
+
+    /**
+     * разметка с картинкой
+     */
+    private function _getImageMarkup(string $imagePath) : string {
+        return '<img width="200" height="200" src="' . $imagePath . '" class="admin-preview" />';
+
+        /*
+         * как вариант, можно рендерить картинку через шаблон, а не разметкой в коде
+         */
+        //            $imageHtml = $this->getConfigurationPool()->getContainer()->get('templating')->render(
+        //                'common/_image.html.twig', [
+        //                    'width' => 200,
+        //                    'height' => 200,
+        //                    'class' => 'admin-preview',
+        //                    'filter' => 'thumb_400',
+        //                    'fullPath' => $fullPath,
+        //                ]
+        //            );
     }
 }
