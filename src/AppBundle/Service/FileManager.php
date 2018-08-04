@@ -7,10 +7,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Осущетвляет загрузку файлов в нужное место
- * Знает как найти нужный файл
- * Знает, как построить url к нужному файлу
- *
- * todo не знаю как распилить ответственность.
+ * Знает куда положить загруженные файлы
  */
 class FileManager
 {
@@ -27,7 +24,7 @@ class FileManager
         return $this->upload($file, $dir);
     }
 
-    public function upload(UploadedFile $file, string $uploadDir) {
+    private function upload(UploadedFile $file, string $uploadDir) {
 
         $fileName = $this->_getRandomName($file);
 
@@ -36,15 +33,15 @@ class FileManager
         return $fileName;
     }
 
-    public function getProductUploadDir(Image $image) : string {
+    private function getProductUploadDir(Image $image) : string {
         return $this->_getUploadDir('product/'. $image->getProduct()->getId());
     }
 
-    protected function _getUploadDir(string $subDir): string {
+    private function _getUploadDir(string $subDir): string {
         return $this->uploadDir . DIRECTORY_SEPARATOR . $subDir;
     }
 
-    protected function _getRandomName(UploadedFile $file) : string {
+    private function _getRandomName(UploadedFile $file) : string {
         return  md5(uniqid()) . '.' . $file->guessExtension();
     }
 }
