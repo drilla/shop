@@ -60,18 +60,18 @@
 
 
 //Смена расположения блоков меню
-function changeMenuBlocksPosition() {
-    var windowWidth = $(window).outerWidth();
-    var blocks;
-
-    if (windowWidth >= 1210) {
-        blocks = $('.menu__footer > div');
-        $('.header__block_logo').after(blocks);
-    } else {
-        blocks = $('.header__block_footer');
-        blocks.appendTo('.menu__footer');
-    }
-}
+// function changeMenuBlocksPosition() {
+//     var windowWidth = $(window).outerWidth();
+//     var blocks;
+//
+//     if (windowWidth >= 1210) {
+//         blocks = $('.menu__footer > div');
+//         $('.header__block_logo').after(blocks);
+//     } else {
+//         blocks = $('.header__block_footer');
+//         blocks.appendTo('.menu__footer');
+//     }
+// }
 
 //Находится ли элемент в границах экрана
 $.fn.isInViewport = function () {

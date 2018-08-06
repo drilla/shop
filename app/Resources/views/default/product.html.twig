@@ -1,0 +1,46 @@
+{# @controllerAppBundle:Default:product #}
+{# @var Product $product#}
+
+{% extends "layout/base.html.twig" %}
+
+{% block content %}
+    <div class="product__product-card">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="owl-carousel product__main-slider">
+                        {% for image in product.images  %}
+                            <img class="b-lazy" src="{{ pixel }}"
+                                 data-src="{{ path('product_image', {'product_id':product.id, 'file_name': image.fileName}) | imagine_filter('thumb_400')}}"
+                                 alt=""/>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-sm-6" style="height: 400px">
+                    <div class="product__info">
+                        <button class="btn btn-success">Купить</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="nav nav-tabs justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="">Описание</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Состав</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Отзывы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="">Дополнительная информация</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

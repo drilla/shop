@@ -22,10 +22,10 @@ class FileManager
     public function uploadImage(UploadedFile $file, Image $image) : string {
         $dir = $this->getProductUploadDir($image);
 
-        return $this->upload($file, $dir);
+        return $this->_upload($file, $dir);
     }
 
-    private function upload(UploadedFile $file, string $uploadDir) {
+    private function _upload(UploadedFile $file, string $uploadDir) {
 
         $fileName = $this->_getRandomName($file);
 

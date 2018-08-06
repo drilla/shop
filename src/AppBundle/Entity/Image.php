@@ -16,7 +16,9 @@ class Image
     /** @var  string */
     private $fileName;
 
-    /** @var  UploadedFile */
+    /**
+     * @var  UploadedFile
+     */
     private $file;
 
     /** @var  bool */
