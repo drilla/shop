@@ -7,19 +7,27 @@
     <div class="product__product-card">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 main-padding">
                     <div class="owl-carousel owl-theme product__main-slider">
                         {% for image in product.images  %}
-                            <a data-fancybox="gallery" href="{{ path('product_image', {'product_id':product.id, 'file_name': image.fileName}) | imagine_filter('thumb_800_wm_topped') }}">
+                            <div data-fancybox="gallery" href="{{ path('product_image', {'product_id':product.id, 'file_name': image.fileName}) | imagine_filter('thumb_800_wm_topped') }}">
                                 <img class="b-lazy" src="{{ pixel }}"
                                      data-src="{{ path('product_image', {'product_id':product.id, 'file_name': image.fileName}) | imagine_filter('thumb_800_wm_topped')}}"
                                      alt=""/>
-                            </a>
+                            </div>
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col-sm-6" style="height: 400px">
+                <div class="col-sm-6 main-padding">
                     <div class="product__info">
+                        <h2 class="fs-30 mb-4">{{ product.name }}</h2>
+                        <div class="fs-16 mb-4">
+                            {{ product.description }}
+                        </div>
+                        <div class="fs-45 mb-4">
+                            <b>{{ product.price }} ₽</b>
+                        </div>
+
                         <button class="btn btn-success">Купить</button>
                     </div>
                 </div>
@@ -27,7 +35,7 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    <ul class="nav nav-tabs justify-content-center">
+                    <ul class="nav nav-tabs justify-content-center product-menu__list">
                         <li class="nav-item">
                             <a class="nav-link active" href="">Описание</a>
                         </li>
@@ -38,7 +46,7 @@
                             <a class="nav-link" href="">Отзывы</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="">Дополнительная информация</a>
+                            <a class="nav-link" href="">Дополнительная информация</a>
                         </li>
                     </ul>
                 </div>
