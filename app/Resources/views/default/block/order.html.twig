@@ -1,20 +1,3 @@
-{#<?php#}
-
-{#use yii\bootstrap\Html;#}
-{#use \frontend\models\form\HoneyOrderForm as HoneyForm;#}
-
-{#/**#}
- {#* @var \yii\web\View $this#}
- {#* @var \common\models\ar\HoneyItem $item#}
- {#* @var \frontend\models\form\HoneyOrderForm $form#}
- {#*/#}
-
-{#$formatter = Yii::$app->formatter;#}
-{#$formatter->thousandSeparator=' ';#}
-
-{#$this->title = "Honey Many Market";#}
-{#?>#}
-
 <form class="form" method="POST" action="<?= \yii\helpers\Url::toRoute(['honey/order']) ?>">
     <?= Html :: hiddenInput(\Yii::$app->getRequest()->csrfParam, \Yii::$app->getRequest()->getCsrfToken(), []); ?>
     <section class="sec sec_11">

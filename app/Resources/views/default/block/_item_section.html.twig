@@ -1,20 +1,3 @@
-{#<?php#}
-
-{#use \frontend\helpers\HoneyItem as HoneyItemHelper;#}
-{#use \frontend\helpers\Image as ImageHelper;#}
-{#use yii\helpers\Url;#}
-
-{#/**#}
- {#* @var string $category#}
- {#* @var \yii\web\View $this#}
- {#*/#}
-
-{#/** @var \common\models\ar\HoneyItem[] $items */#}
-{#$items = \common\models\ar\HoneyItem::findByCategory($category)->all();#}
-{#$formatter = Yii::$app->formatter;#}
-{#$formatter->thousandSeparator=' '#}
-{#?>#}
-
 {% if products %}
     <div class="container">
         <h2 class="h2">{{ category }}</h2>

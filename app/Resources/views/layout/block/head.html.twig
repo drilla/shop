@@ -7,8 +7,8 @@
     {% block title %}{% endblock %}
 
     {% stylesheets filter='scssphp' output="css/app.css"
-        "assets/scss/style.scss"
         "assets/scss/bootstrap/bootstrap.scss"
+        "assets/scss/style.scss"
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}

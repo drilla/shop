@@ -57,7 +57,6 @@ $(document).ready(function () {
     // Слайдер товара
     $(".owl-carousel.product__main-slider").owlCarousel({
         items: 1,
-        margin: 0,
         loop:true,
         dots: true,
         nav: true,

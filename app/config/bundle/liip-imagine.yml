@@ -31,6 +31,11 @@ liip_imagine:
             filters:
                 thumbnail: { size: [400, 400], mode: outbound }
                 watermark: {position: bottom, size: 0.8, image: ../web/assets/img/watermark/wm-base-topped.png}
+        thumb_800_wm_topped:
+            quality: 90
+            filters:
+                thumbnail: { size: [800, 800], mode: outbound }
+                watermark: {position: bottom, size: 0.8, image: ../web/assets/img/watermark/wm-base-topped.png}
 
         # надпись по самому низу
         thumb_200_wm_base:
