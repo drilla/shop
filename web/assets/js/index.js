@@ -53,23 +53,7 @@ $(document).ready(function () {
             }
         }
     });
-    
-    // Слайдер товара
-    $(".owl-carousel.product__main-slider").owlCarousel({
-        items: 1,
-        loop:true,
-        dots: true,
-        nav: true,
-        mouseDrag: true,
-        navText: ['<i class="icon_left"></i>', '<i class="icon_right"></i>'],
-        responsive: {
-            0: {
-                nav: true,
-                center: true
-            }
-        }
-    });
-    
+
     var sliders = $('.owl-carousel');
     sliders.on('changed.owl.carousel', function (event) {
         blazy.revalidate();

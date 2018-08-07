@@ -2,26 +2,24 @@
 @import "owl/owl.carousel.min.scss";
 @import "owl/owl.theme.default.min.scss";
 
-$bg-color: #f8f8f8;
-$border-color: #f4f4f4;
-$main-color: #423107;
-$secondary-color: #3a9cf2;
-$main-color-2: #f2c404;
+//грузим первыми
+@import "_variables.scss";
+@import "_mixins.scss";
 
-$main-highlight: $main-color-2;
-
-$secondary-highlight: lighten($secondary-color, 35%);
-
-
-$text-color: $main-color;
-$text-color-grey: #666;
-$text-color-grey2: #999;
-$text-color-grey3: #eee;
-$text-color-grey4: #333;
-
-@mixin shadow{
-    box-shadow: 0 0 10px rgba(50, 41, 5, 0.1) !important;
-}
+@import "_menu.scss";
+@import "_header.scss";
+@import "_icons.scss";
+@import "_logo.scss";
+@import "_helpers.scss";
+@import "_section.scss";
+@import "_typo.scss";
+@import "_btn.scss";
+@import "_card.scss";
+@import "_form.scss";
+@import "_panel.scss";
+@import "_orders.scss";
+@import "_modal.scss";
+@import "_product.scss";
 
 @font-face {
     font-family: 'ProximaNova';
@@ -96,22 +94,7 @@ body{
     }
 }
 
-@import "_menu.scss";
-@import "_header.scss";
-@import "_icons.scss";
-@import "_logo.scss";
-@import "_helpers.scss";
-@import "_section.scss";
-@import "_typo.scss";
-@import "_btn.scss";
-@import "_card.scss";
-@import "_form.scss";
-@import "_panel.scss";
-@import "_orders.scss";
-@import "_modal.scss";
-@import "_product.scss";
-/*@import "_enoughMoney.scss";*/
-/*@import "_animate.min.scss";*/
+
 
 @media (min-width: 768px) {
     .container {
