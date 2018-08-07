@@ -8,11 +8,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="owl-carousel product__main-slider">
+                    <div class="owl-carousel owl-theme product__main-slider">
                         {% for image in product.images  %}
-                            <img class="b-lazy" src="{{ pixel }}"
-                                 data-src="{{ path('product_image', {'product_id':product.id, 'file_name': image.fileName}) | imagine_filter('thumb_800_wm_topped')}}"
-                                 alt=""/>
+                            <a data-fancybox="gallery" href="{{ path('product_image', {'product_id':product.id, 'file_name': image.fileName}) | imagine_filter('thumb_800_wm_topped') }}">
+                                <img class="b-lazy" src="{{ pixel }}"
+                                     data-src="{{ path('product_image', {'product_id':product.id, 'file_name': image.fileName}) | imagine_filter('thumb_800_wm_topped')}}"
+                                     alt=""/>
+                            </a>
                         {% endfor %}
                     </div>
                 </div>

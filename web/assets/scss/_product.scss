@@ -1,10 +1,14 @@
 .product__product-card {
   .product__main-slider.owl-carousel {
 
+    .owl-nav {
+      display: none;
+    }
+    .owl-item {
+      padding: 3rem 5rem 1rem;
+    }
     .product-item__img {
-
 
     }
   }
-
 }

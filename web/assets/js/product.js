@@ -7,7 +7,7 @@
         $(".owl-carousel.product__main-slider").owlCarousel({
             items: 1,
             loop:true,
-            dots: false,
+            dots: true,
             nav: false,
             mouseDrag: true,
             responsive: {
