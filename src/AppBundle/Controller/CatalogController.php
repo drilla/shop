@@ -14,7 +14,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class CatalogController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="catalog")
      */
     public function indexAction()
     {

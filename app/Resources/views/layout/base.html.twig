@@ -4,7 +4,7 @@
 <html>
     {% include 'layout/block/head.html.twig' %}
 
-    <body>
+    <body class="route-{{ app.request.attributes.get("_route")  }}">
         <div class="overlay"></div>
 
         {% include 'layout/block/menu.html.twig' %}

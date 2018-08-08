@@ -2,11 +2,14 @@
  * @todo убрать лишнее
  */
 $(document).ready(function () {
-    //    scrollspy
-    var spy = new ScrollSpy('#js-scrollspy', {
-        nav: '.js-scrollspy-nav > li > a',
-        className: 'active'
-    });
+    // scrollspy инициализируем только на странице каталога
+    // todo разделить скрипты и не загружать на других страницах
+    if ($('body').hasClass('catalog')) {
+        var spy = new ScrollSpy('#js-scrollspy', {
+            nav: '.js-scrollspy-nav > li > a',
+            className: 'active'
+        });
+    }
 
     //    Слайдер
     $(".owl_high").owlCarousel({
@@ -16,30 +19,6 @@ $(document).ready(function () {
         autoWidth: true,
         mouseDrag: false,
         dots: false
-    });
-
-//    Слайдер товаров, на которые не хватает баллов
-    var owl = $(".owl_nohb");
-    owl.owlCarousel({
-        margin: 0,
-        dots: false,
-        nav: true,
-        mouseDrag: false,
-        navText: ['<i class="icon_left"></i>', '<i class="icon_right"></i>'],
-        responsive: {
-            0: {
-                items: 1
-            },
-            768: {
-                items: 2
-            },
-            1024: {
-                items: 3
-            },
-            1210: {
-                items: 4
-            }
-        }
     });
 
     var sliders = $('.owl-carousel');
@@ -108,7 +87,7 @@ $(document).ready(function () {
 
     }());
 
-//    Активация ленивой загрузки для блока Баллы за аппрувы
+//    Активация ленивой загрузки для блока
     (function () {
         var scrollArea = $('.scroll-x');
         var waiting = false;
