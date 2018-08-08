@@ -6,7 +6,6 @@ use AppBundle\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -14,15 +13,8 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  *
  * Маршуты храним тут же, для наглядности
  */
-class DefaultController extends Controller
+class DefaultController extends AbstractController
 {
-    /** @var EntityManagerInterface  */
-    private $_entityManager;
-
-    public function __construct(EntityManagerInterface $manager) {
-        $this->_entityManager = $manager;
-    }
-
     /**
      * @Route("/", name="homepage")
      */
@@ -82,7 +74,4 @@ class DefaultController extends Controller
         ]);
     }
 
-    private function _getEntityManager() : EntityManagerInterface {
-        return $this->_entityManager;
-    }
 }

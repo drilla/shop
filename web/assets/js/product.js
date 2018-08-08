@@ -27,9 +27,15 @@
         (function () {
 
             var gotoHashTab = function (customHash) {
-                var hash = customHash || location.hash;
-                var hashPieces = hash.split('?'),
-                    activeTab = $('[href="' + hashPieces[0] + '"]');
+                var hash;
+                var hashPieces;
+                var activeTab;
+
+                hash = customHash || location.hash;
+                if (!hash) return;
+
+                hashPieces = hash.split('?')
+                activeTab = $('[href="' + hashPieces[0] + '"]');
                 activeTab && activeTab.tab('show');
 
                 $('html, body').stop().animate({scrollTop: ($(hashPieces[0]).offset().top + 140)}, 500);
@@ -39,7 +45,7 @@
             gotoHashTab();
 
             // пишем хэш в строку
-            $('.nav a').on('shown', function (e) {
+            $('.nav a').on('shown.bs.tab', function (e) {
                 window.location.hash = e.target.hash;
             });
 

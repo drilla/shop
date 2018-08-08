@@ -47,8 +47,6 @@ $(document).ready(function () {
         blazy.revalidate();
     });
 
-
-    
     blazy.revalidate();
 
 //    Нажатие на кнопку Купить

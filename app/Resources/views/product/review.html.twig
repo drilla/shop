@@ -1,0 +1,44 @@
+{# @controllerAppBundle:Product:index #}
+{# @var Product $product#}
+
+{% extends "layout/base.html.twig" %}
+
+{% block content %}
+    <div class="product__product-review">
+        <div class="container">
+            <div class="row">
+                <h1>Отзывы о <span class="c-secondary">{{ product.name }}</span></h1>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 main-padding">
+                    <div class="owl-carousel owl-theme product__main-slider">
+                        {% for image in product.images  %}
+                            <div data-fancybox="gallery" href="{{ path('product_image', {'product_id':product.id, 'file_name': image.fileName}) | imagine_filter('thumb_800_wm_topped') }}">
+                                <img class="b-lazy" src="{{ pixel }}"
+                                     data-src="{{ path('product_image', {'product_id':product.id, 'file_name': image.fileName}) | imagine_filter('thumb_800_wm_topped')}}"
+                                     alt=""/>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-sm-6 main-padding">
+                    <div class="product__info">
+                        <h2 class="fs-30 mb-4">{{ product.name }}</h2>
+                        <div class="fs-16 mb-4">
+                            {{ product.description }}
+                        </div>
+                        <div class="fs-45 mb-4">
+                            <b>{{ product.price }} ₽</b>
+                        </div>
+
+                        <button class="btn btn-success">Купить</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+{% endblock %}
