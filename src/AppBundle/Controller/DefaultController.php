@@ -23,7 +23,6 @@ class DefaultController extends Controller
         $this->_entityManager = $manager;
     }
 
-
     /**
      * @Route("/", name="homepage")
      */

@@ -37,13 +37,13 @@
                 <div class="col-sm-12">
                     <ul class="nav nav-tabs justify-content-center product-menu__list" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#productTabDesc" role="tab" data-toggle="tab">Описание</a>
+                            <a class="nav-link active" href="#productTabFeedback" role="tab" data-toggle="tab">Отзывы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#productTabDesc" role="tab" data-toggle="tab">Описание</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#productTabContains" role="tab" data-toggle="tab">Состав</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#productTabFeedback" role="tab" data-toggle="tab">Отзывы</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="" role="tab" data-toggle="tab">Дополнительная информация</a>
@@ -55,14 +55,14 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="tab-content" role="tabpanel">
+                        <div id="productTabFeedback" class="tab-pane active show">
+                            {% include "default/product/_feedback.html.twig" %}
+                        </div>
                         <div id="productTabDesc" class="tab-pane">
                             {% include "default/product/_description.html.twig" %}
                         </div>
                         <div id="productTabContains" class="tab-pane">
                             {% include "default/product/_contains.html.twig" %}
-                        </div>
-                        <div id="productTabFeedback" class="tab-pane">
-                            {% include "default/product/_feedback.html.twig" %}
                         </div>
                     </div>
                 </div>

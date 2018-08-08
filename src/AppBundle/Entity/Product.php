@@ -28,6 +28,9 @@ class Product
     /** @var string */
     private $name;
 
+    /** @var  string */
+    private $slug;
+
     /** @var float */
     private $price;
 
@@ -102,6 +105,15 @@ class Product
 
     public function setPicture(string $picture): Product {
         $this->picture = $picture;
+        return $this;
+    }
+
+    public function getSlug(): ? string {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): Product {
+        $this->slug = $slug;
         return $this;
     }
 

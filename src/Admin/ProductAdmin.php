@@ -19,6 +19,7 @@ class ProductAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper) : void {
         $formMapper
             ->add('name', TextType::class)
+            ->add('slug', TextType::class)
             ->add('price', TextType::class)
             ->add('category', ChoiceType::class, ['choices' => array_flip(ProductHelper::categoryLabels())])
             ->add('description', TextType::class)
@@ -31,6 +32,7 @@ class ProductAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $dataGridMapper) : void {
         $dataGridMapper
             ->add('name')
+            ->add('slug')
             ->add('price')
             ->add('category')
             ->add('description')
@@ -41,6 +43,7 @@ class ProductAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('name')
+            ->add('slug', 'text', ['editable' => true])
             ->add('price', 'text', ['editable' => true])
             ->add('category', 'choice', [
                     'choices'  => ProductHelper::categoryLabels(),
