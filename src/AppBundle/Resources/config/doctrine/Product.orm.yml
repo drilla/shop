@@ -21,8 +21,10 @@ AppBundle\Entity\Product:
             type: integer
         consist:
             type: text
+            nullable: true
         article:
             type: text
+            nullable: true
     oneToMany:
         images:
             targetEntity: AppBundle\Entity\Image

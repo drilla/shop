@@ -158,5 +158,20 @@ var blazy = new Blazy({
         $('.modal').on('shown.bs.modal', function (e) {
             blazy.revalidate();
         });
+
+        /**
+         * подгрузка картинок в слайдеры
+         */
+        (function () {
+            var sliders = $('.owl-carousel');
+            sliders.on('changed.owl.carousel', function (event) {
+                blazy.revalidate();
+            });
+        }());
+
+        /**
+         * запуск ленивой загрузки
+         */
+        blazy.revalidate();
     });
 })(jQuery);
