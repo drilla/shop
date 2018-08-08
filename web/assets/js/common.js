@@ -127,17 +127,20 @@ var blazy = new Blazy({
             e.preventDefault();
 
             var url = document.URL;
-            var target = this.hash;
-            var id = $(this).attr('href');
+            var hash = this.hash;
+            var idHash = $(this).attr('href');
+            var $target = $(idHash);
+
+            if ($target.length !== 1) return;
 
              // Если это страница заказа, то переходим на главную
             if (url.search('order') !== -1) {
-                window.location = "/" + id;
+                window.location = "/" + idHash;
                 return false;
             }
 
-            $('html, body').stop().animate({scrollTop: ($(id).offset().top - 141)}, 1000);
-            window.location.hash = target;
+            $('html, body').stop().animate({scrollTop: ($target.offset().top - 141)}, 1000);
+            window.location.hash = hash;
             $('.menu, .overlay').removeClass('active');
         });
 
