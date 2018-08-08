@@ -25,8 +25,6 @@ class ProductAdmin extends AbstractAdmin
             ->add('description', TextType::class)
         ;
 
-//        $builder = $formMapper->getFormBuilder();
-//        $builder->setDataMapper(new ProductMapper());
     }
 
     protected function configureDatagridFilters(DatagridMapper $dataGridMapper) : void {

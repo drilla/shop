@@ -95,6 +95,17 @@ var blazy = new Blazy({
             $modal.modal('show');
         });
 
+        /**
+         *  Прокрутка до якоря
+         */
+        (function () {
+
+            if (window.location.hash) {
+                var id = window.location.hash.substr(1);
+                console.log(id);
+                $('html, body').stop().animate({scrollTop: ($('#' + id).offset().top + 140)}, 500);
+            }
+        }());
 
         /**
          * управление меню
@@ -113,10 +124,8 @@ var blazy = new Blazy({
             var target = this.hash;
             var id = $(this).attr('href');
 
-            /**
-             * Если это страница заказа, то переходим на главную
-             */
-            if (url.search('order') != -1) {
+             // Если это страница заказа, то переходим на главную
+            if (url.search('order') !== -1) {
                 window.location = "/" + id;
                 return false;
             }

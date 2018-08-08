@@ -2,18 +2,6 @@
  * @todo убрать лишнее
  */
 $(document).ready(function () {
-    
-    //    Прокрутка до якоря
-    (function () {
-
-        if (window.location.hash) {
-            var id = window.location.hash.substr(1);
-            console.log(id);
-            $('html, body').stop().animate({scrollTop: ($('#' + id).offset().top + 140)}, 500);
-        }
-
-    }());
-
     //    scrollspy
     var spy = new ScrollSpy('#js-scrollspy', {
         nav: '.js-scrollspy-nav > li > a',
