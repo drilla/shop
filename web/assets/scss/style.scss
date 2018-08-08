@@ -132,7 +132,12 @@ body{
         }
     }
     .container {
+        max-width: 1600px;
         padding: 0 15px;
+
+        &.container__header {
+            max-width: 1200px;
+        }
 
         &_min, &_order{
             max-width: 1000px;
