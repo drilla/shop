@@ -34,7 +34,7 @@
                 hash = customHash || location.hash;
                 if (!hash) return;
 
-                hashPieces = hash.split('?')
+                hashPieces = hash.split('?');
                 activeTab = $('[href="' + hashPieces[0] + '"]');
                 activeTab && activeTab.tab('show');
 

@@ -1,0 +1,19 @@
+{# библиотеки #}
+{% javascripts
+    "assets/js/jquery-3.3.1.min.js"
+    "assets/js/bootstrap.min.js"
+    "assets/js/bootstrap.bundle.min.js"
+    "assets/js/owl.carousel.min.js"
+    "assets/js/blazy.min.js"
+    "assets/js/jquery.scrollspy.js"
+    "assets/js/lib/fancybox/jquery.fancybox.min.js"
+%}
+    <script src="{{ asset_url }}"> </script>
+{% endjavascripts %}
+
+{# приложение #}
+{% javascripts filter="?jsqueeze" output="js/app.js"
+    "assets/js/common.js"
+%}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}

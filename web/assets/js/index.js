@@ -4,12 +4,12 @@
 $(document).ready(function () {
     // scrollspy инициализируем только на странице каталога
     // todo разделить скрипты и не загружать на других страницах
-    if ($('body').hasClass('catalog')) {
+    // if ($('body').hasClass('route-catalog')) {
         var spy = new ScrollSpy('#js-scrollspy', {
             nav: '.js-scrollspy-nav > li > a',
             className: 'active'
         });
-    }
+    // }
 
     //    Слайдер
     $(".owl_high").owlCarousel({

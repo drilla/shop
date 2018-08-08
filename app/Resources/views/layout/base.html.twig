@@ -1,8 +1,14 @@
-
 <!DOCTYPE html>
 
 <html>
-    {% include 'layout/block/head.html.twig' %}
+
+<head>
+    {% block meta %}  {% include 'layout/block/head/meta.html.twig' %}  {% endblock %}
+    {% block opengraph %} {% include 'layout/block/head/open_graph.html.twig' %}  {% endblock %}
+    {% block style %}  {% include 'layout/block/head/style.html.twig' %}  {% endblock %}
+    {% block title %}  {% include 'layout/block/head/title.html.twig' %}  {% endblock %}
+    {% block javascript %} {% include 'layout/block/head/js.html.twig' %}  {% endblock %}
+</head>
 
     <body class="route-{{ app.request.attributes.get("_route")  }}">
         <div class="overlay"></div>

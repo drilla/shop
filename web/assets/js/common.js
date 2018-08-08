@@ -102,8 +102,14 @@ var blazy = new Blazy({
 
             if (window.location.hash) {
                 var id = window.location.hash.substr(1);
-                console.log(id);
-                $('html, body').stop().animate({scrollTop: ($('#' + id).offset().top + 140)}, 500);
+
+                if (!id) return;
+
+                var $target = $('#' + id);
+
+                if ($target.length < 1 ) return;
+
+                $('html, body').stop().animate({scrollTop: ($target.offset().top + 140)}, 500);
             }
         }());
 

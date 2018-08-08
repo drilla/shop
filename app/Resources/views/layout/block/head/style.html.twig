@@ -1,0 +1,14 @@
+{# стили приложения #}
+
+{% stylesheets filter='scssphp' output="css/app.css"
+    "assets/scss/style.scss"
+%}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+
+
+{# без препроцессинга #}
+
+{% stylesheets "assets/css/fancybox/jquery.fancybox.min.css" %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}

@@ -3,6 +3,15 @@
 
 {% extends "layout/base.html.twig" %}
 
+{% block javascript %}
+    {{ parent() }}
+
+    {% javascripts filter="?jsqueeze" output="js/app.js"
+    "assets/js/index.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
 
 {% block content %}
 
