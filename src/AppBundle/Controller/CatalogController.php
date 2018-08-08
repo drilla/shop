@@ -3,9 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Product;
-use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -13,7 +11,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  *
  * Маршуты храним тут же, для наглядности
  */
-class DefaultController extends AbstractController
+class CatalogController extends AbstractController
 {
     /**
      * @Route("/", name="homepage")
@@ -52,7 +50,7 @@ class DefaultController extends AbstractController
             $specialOfferPairs[] = $pair;
         }
 
-        return $this->render('default/index.html.twig', [
+        return $this->render('catalog/index.html.twig', [
             'productsJoint'     => $productsJoint,
             'productsWrinkles'  => $productsWrinkles,
             'specialOffers'     => $specialOffers,
@@ -60,18 +58,4 @@ class DefaultController extends AbstractController
             'mainProduct'       => $mainProduct,
         ]);
     }
-
-    /**
-     * @Route("/product/{id}", name="product", requirements={"id"="\d+"})
-     */
-    public function productAction(int $id) {
-        $product = $this->_getEntityManager()->getRepository(Product::class)->find($id);
-
-        if (!$product) throw new NotFoundHttpException();
-
-        return $this->render('default/product.html.twig', [
-            'product' => $product
-        ]);
-    }
-
 }

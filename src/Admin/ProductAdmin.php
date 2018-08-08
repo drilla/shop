@@ -3,6 +3,7 @@
 namespace Admin;
 
 use AppBundle\Helper\Product as ProductHelper;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -23,6 +24,8 @@ class ProductAdmin extends AbstractAdmin
             ->add('price', TextType::class)
             ->add('category', ChoiceType::class, ['choices' => array_flip(ProductHelper::categoryLabels())])
             ->add('description', TextType::class)
+            ->add('consist', CKEditorType::class)
+            ->add('article', CKEditorType::class)
         ;
 
     }

@@ -16,9 +16,7 @@ class Image
     /** @var  string */
     private $fileName;
 
-    /**
-     * @var  UploadedFile
-     */
+    /** @var  UploadedFile */
     private $file;
 
     /** @var  bool */
@@ -70,6 +68,7 @@ class Image
     public function getFileName(): ?string {
         return $this->fileName;
     }
+
     public function setFileName(string $fileName) : Image {
         $this->fileName = $fileName;
         return $this;

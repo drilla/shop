@@ -44,7 +44,7 @@
             // onready go to the tab requested in the page hash
             gotoHashTab();
 
-            // пишем хэш в строку
+            // // пишем хэш в строку
             $('.nav a').on('shown.bs.tab', function (e) {
                 window.location.hash = e.target.hash;
             });

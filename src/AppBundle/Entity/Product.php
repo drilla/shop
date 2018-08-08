@@ -46,6 +46,12 @@ class Product
     /** @var Image[] */
     private $images;
 
+    /** @var  string */
+    private $consist;
+
+    /** @var  string */
+    private $article;
+
     public function __construct() {
         $this->images = new ArrayCollection();
     }
@@ -114,6 +120,24 @@ class Product
 
     public function setSlug(string $slug): Product {
         $this->slug = $slug;
+        return $this;
+    }
+
+    public function getConsist(): ? string {
+        return $this->consist;
+    }
+
+    public function setConsist(string $consist): Product {
+        $this->consist = $consist;
+        return $this;
+    }
+
+    public function getArticle(): ? string {
+        return $this->article;
+    }
+
+    public function setArticle(string $article): Product {
+        $this->article = $article;
         return $this;
     }
 

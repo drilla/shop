@@ -35,18 +35,18 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    <ul class="nav nav-tabs justify-content-center product-menu__list" role="tablist">
+                    <ul class="nav nav-tabs justify-content-center product-menu__list mb-45" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#tabReview" role="tab" data-toggle="tab">Отзывы</a>
+                            <a class="nav-link active" href="#tabDesc" role="tab" data-toggle="tab">Описание</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#tabDesc" role="tab" data-toggle="tab">Описание</a>
+                            <a class="nav-link" href="#tabReview" role="tab" data-toggle="tab">Отзывы</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#tabContains" role="tab" data-toggle="tab">Состав</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="" role="tab" data-toggle="tab">Дополнительная информация</a>
+                            <a class="nav-link" href="#tabMore" role="tab" data-toggle="tab">Дополнительная информация</a>
                         </li>
                     </ul>
                 </div>
@@ -55,14 +55,17 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="tab-content" role="tabpanel">
-                        <div id="tabReview" class="tab-pane active show">
-                            {% include "default/product/_feedback.html.twig" %}
+                        <div id="tabDesc" class="tab-pane active show">
+                            {% include "product/tab/_description.html.twig" %}
                         </div>
-                        <div id="tabDesc" class="tab-pane">
-                            {% include "default/product/_description.html.twig" %}
+                        <div id="tabReview" class="tab-pane">
+                            {% include "product/tab/_feedback.html.twig" %}
                         </div>
                         <div id="tabContains" class="tab-pane">
-                            {% include "default/product/_contains.html.twig" %}
+                            {% include "product/tab/_consist.html.twig" %}
+                        </div>
+                        <div id="tabMore" class="tab-pane">
+                            {% include "product/tab/_more.html.twig" %}
                         </div>
                     </div>
                 </div>

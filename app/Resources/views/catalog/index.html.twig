@@ -1,0 +1,45 @@
+{# @controller AppBundle:Catalog:index #}
+{# @var Product[] specialOffers#}
+
+{% extends "layout/base.html.twig" %}
+
+
+{% block content %}
+
+<section class="sec sec_1">
+    {% include 'catalog/block/_slogan.html.twig' %}
+</section>
+
+<section class="sec sec_2 animated fadeInLeft" id="special">
+    {% include 'catalog/block/_special_offers.html.twig' with {products : specialOffers} %}
+</section>
+
+<section class="sec sec_3 aos aos_right" id="joint">
+    {% include 'catalog/block/_item_section.html.twig' with {category: 'Суставы', products : productsJoint} only %}
+</section>
+
+<section class="sec sec_4 aos aos_right" id="beauty">
+    {% include 'catalog/block/_item_section.html.twig'with {category: 'Морщины', products : productsWrinkles} only %}
+</section>
+
+<section class="sec sec_points" id="actions">
+    {% include 'catalog/block/_special_offers_fat.html.twig' with {productPairs: specialOfferPairs, mainProduct: mainProduct} only %}
+</section>
+
+<section class="sec sec_12 aos aos_left" id="contactUs">
+    {% include 'catalog/block/_call_me.html.twig' %}
+</section>
+
+<section class="sec sec_9 aos aos_left" id="rules">
+    {% include 'catalog/block/_rules.html.twig' %}
+</section>
+
+{% include 'catalog/modal/_offers.html.twig' %}
+
+{% include 'catalog/modal/_points.html.twig' %}
+
+{% include 'catalog/modal/_common.html.twig' %}
+
+{% include 'catalog/modal/_call_form.html.twig' %}
+
+{% endblock %}

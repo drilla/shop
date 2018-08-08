@@ -19,6 +19,10 @@ AppBundle\Entity\Product:
             type: text
         category:
             type: integer
+        consist:
+            type: text
+        article:
+            type: text
     oneToMany:
         images:
             targetEntity: AppBundle\Entity\Image
