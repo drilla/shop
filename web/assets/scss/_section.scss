@@ -3,9 +3,12 @@
     overflow: hidden;
 
     &_1{
-        background: #fff url(../img/sec1.jpg) no-repeat left top;
         text-align: center;
-        padding: 4rem 0 6.5rem;
+        padding: 0;
+        background: #fff;
+        .section-content {
+            padding: 4rem 0 6.5rem;
+        }
     }
 
     &_2{
@@ -59,7 +62,7 @@
 
         &_1{
             padding: 4rem 0 7.3rem;
-            background: #fff url(../img/sec1-md.jpg) no-repeat left top;
+            //background: #fff url(../img/sec1-md.jpg) no-repeat left top;
         }
     }
 }
@@ -68,7 +71,7 @@
 
         &_1{
             padding: 6rem 0 7.3rem;
-            background: #fff url(../img/sec1-lg.jpg) no-repeat left top;
+            //background: #fff url(../img/sec1-lg.jpg) no-repeat left top;
         }
     }
 }
@@ -76,8 +79,15 @@
     .sec{
 
         &_1{
-            padding: 8rem 0 8rem;
-            background: #fff url(../img/sec1-xl.jpg) no-repeat center top/cover;
+            padding:0;
+            .section-content {
+                min-height:28rem;
+                padding: 8rem 0 8rem;
+                &.section__img {
+                    background: #fff url(../img/zdorov-main-opac2.png) no-repeat top right;
+                    background-size: contain;
+                }
+            }
         }
     }
 }
