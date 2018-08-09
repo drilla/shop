@@ -98,11 +98,17 @@
 
 .lead {
   background-color: $text-color-grey3;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
   padding: .5rem .5rem;
   align-self: center;
+
+  &.lead-old {
+    background: none;
+    text-decoration-line: line-through;
+    text-decoration-color: red;
+  }
   &_big {
     padding: 0.4rem 1.8rem;
     display: inline-block;

@@ -17,6 +17,7 @@
                     <span class="card__link">{{ product.name }}</span>
                 </div>
                 <div class="card__body">
+                    <div class="lead lead-old mb-2">{{ product.fakePrice | number_format(thousand_sep=' ')}} ₽</div>
                     <div class="lead">{{ product.price | number_format(thousand_sep=' ')}} ₽</div>
                 </div>
             </a>

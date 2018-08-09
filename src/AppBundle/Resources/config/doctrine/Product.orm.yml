@@ -15,6 +15,10 @@ AppBundle\Entity\Product:
         price:
             type: decimal
             scale: 2
+        fakePrice:
+            type: decimal
+            nullable: true
+            scale: 2
         description:
             type: text
         category:

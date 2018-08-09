@@ -22,6 +22,7 @@ class ProductAdmin extends AbstractAdmin
             ->add('name', TextType::class)
             ->add('slug', TextType::class)
             ->add('price', TextType::class)
+            ->add('fakePrice', TextType::class)
             ->add('category', ChoiceType::class, ['choices' => array_flip(ProductHelper::categoryLabels())])
             ->add('description', TextType::class)
             ->add('consist', CKEditorType::class)
@@ -46,6 +47,7 @@ class ProductAdmin extends AbstractAdmin
             ->addIdentifier('name')
             ->add('slug', 'text', ['editable' => true])
             ->add('price', 'text', ['editable' => true])
+            ->add('fakePrice', 'text', ['editable' => true])
             ->add('category', 'choice', [
                     'choices'  => ProductHelper::categoryLabels(),
                     'editable' => true,

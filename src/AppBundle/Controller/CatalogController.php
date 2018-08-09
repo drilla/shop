@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Product;
+use Doctrine\ORM\EntityRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -19,10 +20,12 @@ class CatalogController extends AbstractController
     public function indexAction()
     {
         $manager = $this->_getEntityManager();
-        $products = $manager->getRepository(Product::class)->findAll();
 
-        $specialOffers = $products;
-        // replace this example code with whatever you need
+        /** @var EntityRepository $productRepo */
+        $productRepo =  $manager->getRepository(Product::class);
+        $products = $productRepo->findAll();
+
+        $specialOffers = $productRepo->createQueryBuilder('p')->where('p.fakePrice is not null')->getQuery()->getResult();
 
         $productsJoint = $manager->getRepository(Product::class)->findBy(
             ['category' => Product::CAT_JOINT]

@@ -34,6 +34,9 @@ class Product
     /** @var float */
     private $price;
 
+    /** @var float */
+    private $fakePrice;
+
     /** @var string */
     private $description;
 
@@ -75,6 +78,15 @@ class Product
 
     public function setPrice(float $price) : self {
         $this->price = $price;
+        return $this;
+    }
+
+    public function getFakePrice(): ? float {
+        return $this->fakePrice;
+    }
+
+    public function setFakePrice(float $fakePrice): Product {
+        $this->fakePrice = $fakePrice;
         return $this;
     }
 
