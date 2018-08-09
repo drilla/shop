@@ -2,21 +2,23 @@
 
 {% for product in specialOffers  %}
 
-    <div class="card cursor-pointer"
-         data-toggle="modal"
-         data-target="#modalPoints"
-         data-container-selector="#modalPointsBody"
-    >
-        <div class="card__img">
-            <img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
-                 data-src="{{ path('product_image', {'product_id':product.id, 'file_name': product.faceImage.fileName})  | imagine_filter('thumb_120') }}"
-                alt=""/>
+        <div class="card cursor-pointer"
+             data-toggle="modal"
+             data-target="#modalPoints"
+             data-container-selector="#modalPointsBody"
+        >
+            <a href="{{ url('product', {'id': product.id}) }}" class="link-invisible">
+                <div class="card__img">
+                    <img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
+                         data-src="{{ path('product_image', {'product_id':product.id, 'file_name': product.faceImage.fileName})  | imagine_filter('thumb_120') }}"
+                        alt=""/>
+                </div>
+                <div class="card__header">
+                    <span class="card__link">{{ product.name }}</span>
+                </div>
+                <div class="card__body">
+                    <div class="lead">{{ product.price | number_format(thousand_sep=' ')}} ₽</div>
+                </div>
+            </a>
         </div>
-        <div class="card__header">
-            <span class="card__link">{{ product.name }}</span>
-        </div>
-        <div class="card__body">
-            <div class="lead">{{ product.price | number_format(thousand_sep=' ')}} ₽</div>
-        </div>
-    </div>
 {% endfor %}

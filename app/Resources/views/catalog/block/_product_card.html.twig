@@ -1,21 +1,23 @@
 {% set additionalClass2 = '' %}
-<div class="card card_points {{ additionalClass | default('') }}">
-    <div class="card__img">
-        <img class="b-lazy image-fluid"
-             src="{{ pixel }}"
-             data-src="{{ path('product_image', {product_id: product.id, file_name: product.faceImage.fileName})
-             | imagine_filter('thumb_400_wm_topped') }}" alt=""/>
-    </div>
-    <div class="card__wrapper">
-        <div class="card__header">
-            {{ product.name }}
+<a href="{{ url('product', {'id': product.id}) }}" class="link-invisible">
+    <div class="card card_points {{ additionalClass | default('') }}">
+        <div class="card__img">
+            <img class="b-lazy image-fluid"
+                 src="{{ pixel }}"
+                 data-src="{{ path('product_image', {product_id: product.id, file_name: product.faceImage.fileName})
+                 | imagine_filter('thumb_400_wm_topped') }}" alt=""/>
         </div>
-        <div class="fs-16 text-uppercase mb-3 {{ additionalClass2 | default('') }}"><b>{{ product.price }} ₽</b></div>
-        <span class="btn btn_more"
-              data-modal-href="{{ 'link to modal' }}"
-              data-toggle="modal"
-              data-target="#modalPoints"
-              data-container-selector="#modalPointsBody"
-        >Подробнее</span>
+        <div class="card__wrapper">
+            <div class="card__header">
+                {{ product.name }}
+            </div>
+            <div class="fs-16 text-uppercase mb-3 {{ additionalClass2 | default('') }}"><b>{{ product.price }} ₽</b></div>
+            <span class="btn btn_more"
+                  data-modal-href="{{ 'link to modal' }}"
+                  data-toggle="modal"
+                  data-target="#modalPoints"
+                  data-container-selector="#modalPointsBody"
+            >Подробнее</span>
+        </div>
     </div>
-</div>
+</a>

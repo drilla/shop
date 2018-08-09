@@ -223,12 +223,6 @@
   }
 }
 
-.chuvak {
-  position: absolute;
-  bottom: -6rem;
-  left: -1.6rem;
-}
-
 .no-gutters {
   padding-bottom: 3px;
   /*    > .col{
@@ -386,6 +380,17 @@
   }
 }
 
+a {
+  &.link-invisible {
+      color: $main-color;
+    &:hover {
+      text-decoration: none;
+      color: $main-color;
+    }
+    text-decoration: none;
+  }
+}
+
 section.b-lazy,
 article.b-lazy,
 .container.b-lazy {
@@ -398,17 +403,6 @@ article.b-lazy,
   }
 }
 
-@media (max-width: 1209px) {
-  .chuvak {
-    max-width: 34rem;
-  }
-}
-
-@media (max-width: 1023px) {
-  .chuvak {
-    display: none;
-  }
-}
 
 @media (min-width: 1024px) {
   .radio {

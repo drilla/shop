@@ -7,31 +7,31 @@
             {#<?php foreach ($items as $item) : ?>#}
             {% for product in products %}
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card card_big">
-                        <div class="card__img">
-                            <img class="b-lazy" src="{{ pixel }}"
-                                 data-src="{{ path('product_image', {'product_id':product.id, 'file_name': product.faceImage.fileName})
-                                 | imagine_filter('thumb_400_wm_topped') }}"
-                                 alt="{{ product.name }}"/>
-                        </div>
-                        <div class="card__header">
-                            {{ product.name }}
-                        </div>
-                        <div class="card__body">
-                            <div class="lead lead_big">{{ product.price }} ₽</div>
+                    <a href="{{ url('product', {'id': product.id}) }}" class="link-invisible">
+                        <div class="card card_big">
+                            <div class="card__img">
+                                <img class="b-lazy" src="{{ pixel }}"
+                                     data-src="{{ path('product_image', {'product_id':product.id, 'file_name': product.faceImage.fileName})
+                                     | imagine_filter('thumb_400_wm_topped') }}"
+                                     alt="{{ product.name }}"/>
+                            </div>
+                            <div class="card__header">
+                                {{ product.name }}
+                            </div>
+                            <div class="card__body">
+                                <div class="lead lead_big">{{ product.price }} ₽</div>
 
 
-                            <button class="btn btn_white btn_inactive order not-selectable"
-                                    data-togge="modal"
-                                    data-target="#callFormModal">
-                                Купить
-                            </button>
+                                <button class="btn btn_white btn_inactive order not-selectable"
+                                        data-togge="modal"
+                                        data-target="#callFormModal">
+                                    Купить
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             {% endfor %}
-            {#<?php endforeach; ?>#}
-
         </div>
     </div>
 {% endif %}

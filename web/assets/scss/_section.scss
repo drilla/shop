@@ -39,6 +39,25 @@
 
     &_12{
 
+        &__left-img {
+            width:66rem;
+            position: absolute;
+            bottom: -6rem;
+            left: -1.6rem;
+        }
+
+        @media (max-width: 1209px) {
+             &__left-img {
+                max-width: 34rem;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            &__left-img {
+                display: none;
+            }
+        }
+
         .row{
             margin: 0;
             background: #fff;

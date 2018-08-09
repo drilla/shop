@@ -43,3 +43,7 @@ liip_imagine:
             filters:
                 thumbnail: { size: [200, 200], mode: outbound }
                 watermark: {position: bottom, size: 0.5, image: ../web/assets/img/watermark/wm-base.png}
+        wm_topped:
+            quality: 100
+            filters:
+                watermark: {position: bottom, size: 0.5, image: ../web/assets/img/watermark/wm-base-topped.png}
