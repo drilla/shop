@@ -153,6 +153,10 @@ class Product
         return $this;
     }
 
+    public function getRating() : float {
+        return 9;
+    }
+
     public function getFaceImage() : ?Image {
         $criteria = new Criteria();
 

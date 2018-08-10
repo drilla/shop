@@ -1,14 +1,19 @@
 $bg-color: #f8f8f8;
 $border-color: #f4f4f4;
 $main-color: #423107;
+$color-main-font: #fff;
 $secondary-color: #00adef;
 $main-color-2: #f2c404;
+$block-bg-color: #fff;
+$fake-price-color: #d30f01;
 
 $main-highlight: $main-color-2;
 
 $secondary-highlight: lighten($secondary-color, 35%);
 
-$text-color: $main-color;
+$color-cross-line:#ff4903;
+
+$text-color: $color-main-font;
 $text-color-grey: #666;
 $text-color-grey2: #999;
 $text-color-grey3: #eee;

@@ -5,7 +5,7 @@
     min-width: 320px;
     padding: 7rem 3rem 0 5.2rem;
     height: 100%;
-    box-shadow: 0 0 40px rgba(50, 41, 5, 0.15);
+    @include shadow-card-40();
     background-color: #ffffff;
     z-index: 10;
     transition: .3s left ease-in-out;
@@ -83,6 +83,7 @@
         left: 0;
         top: 7rem;
         border-top: 1px solid #e9e9e6;
+        border-bottom: 1px solid #e9e9e6;
         padding: 2rem 0;
         box-shadow: 0px 13px 30px 0px rgba(50, 41, 5, 0.06);
 

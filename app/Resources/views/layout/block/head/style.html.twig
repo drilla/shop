@@ -2,6 +2,7 @@
 
 {% stylesheets filter='scssphp' output="css/app.css"
     "assets/scss/style.scss"
+    "assets/scss/font-awesome/font-awesome.scss"
 %}
     <link rel="stylesheet" href="{{ asset_url }}" />
 {% endstylesheets %}
@@ -9,6 +10,10 @@
 
 {# без препроцессинга #}
 
-{% stylesheets "assets/css/fancybox/jquery.fancybox.min.css" %}
+{% stylesheets
+    "assets/css/fancybox/jquery.fancybox.min.css"
+    "bundles/starrating/css/rating.css"
+%}
     <link rel="stylesheet" href="{{ asset_url }}" />
+
 {% endstylesheets %}

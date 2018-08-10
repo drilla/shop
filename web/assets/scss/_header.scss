@@ -1,6 +1,6 @@
 .header{
     background: #fff;
-    box-shadow: 0 0 40px rgba(50, 41, 5, 0.15);
+    @include shadow-card-40();
     position: fixed;
     top: 0;
     left: 0;

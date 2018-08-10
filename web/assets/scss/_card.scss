@@ -2,7 +2,6 @@
     width: 25rem;
     height: 32rem;
     font-size:1.5rem;
-    /*margin-right: 1px;*/
     display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
@@ -95,7 +94,7 @@
         }
 
         &:hover{
-            box-shadow: 0 0 40px rgba(50, 41, 5, 0.15);
+            @include shadow-card-40();
             z-index: 2;
 
             .btn{
@@ -143,7 +142,7 @@
         /*cursor: pointer;*/
 
         &:hover{
-            box-shadow: 0 0 40px rgba(50, 41, 5, 0.15);
+            @include shadow-card-40();
             position: relative;
 
             .btn{

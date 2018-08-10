@@ -123,7 +123,7 @@
         /*padding-bottom: .5rem;*/
         transition: .3s all ease-in-out;
         &:hover {
-          box-shadow: 0 0 40px rgba(50, 41, 5, 0.15);
+          @include shadow-card-40();
           z-index: 3;
         }
         img {
