@@ -23,15 +23,11 @@
     {% include 'catalog/block/_special_offers.html.twig' with {products : specialOffers} %}
 </section>
 
-<section class="sec sec_3 aos aos_right" id="joint">
-    {% include 'catalog/block/_item_section.html.twig' with {category: 'Суставы', products : productsJoint} only %}
+<section class="sec sec_3 aos aos_right" id="catalog">
+    {% include 'catalog/block/_item_section.html.twig' with {category: 'Продукция компании "Здоров"', products : products} only %}
 </section>
 
-<section class="sec sec_4 aos aos_right" id="beauty">
-    {% include 'catalog/block/_item_section.html.twig'with {category: 'Морщины', products : productsWrinkles} only %}
-</section>
-
-<section class="sec sec_points" id="actions">
+<section class="sec sec_points" id="hit-sales">
     {% include 'catalog/block/_special_offers_fat.html.twig' with {productPairs: specialOfferPairs, mainProduct: mainProduct} only %}
 </section>
 

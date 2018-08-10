@@ -54,7 +54,7 @@ class CatalogController extends AbstractController
         }
 
         return $this->render('catalog/index.html.twig', [
-            'productsJoint'     => $productsJoint,
+            'products'          => $products,
             'productsWrinkles'  => $productsWrinkles,
             'specialOffers'     => $specialOffers,
             'specialOfferPairs' => $specialOfferPairs,
