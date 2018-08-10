@@ -8,7 +8,7 @@
             {% for product in products %}
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <a href="{{ url('product', {'id': product.id}) }}" class="link-invisible">
-                        <div class="card card_big">
+                        <div class="card card_big sec-canvas">
                             <div class="card__img">
                                 <img class="b-lazy" src="{{ pixel }}"
                                      data-src="{{ path('product_image', {'product_id':product.id, 'file_name': product.faceImage.fileName})
