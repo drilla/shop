@@ -26,7 +26,7 @@
          */
         (function () {
 
-            var gotoHashTab = function (customHash) {
+            var activateHashTab = function (customHash) {
                 var hash;
                 var hashPieces;
                 var activeTab;
@@ -38,11 +38,10 @@
                 activeTab = $('[href="' + hashPieces[0] + '"]');
                 activeTab && activeTab.tab('show');
 
-                $('html, body').stop().animate({scrollTop: ($(hashPieces[0]).offset().top + 140)}, 500);
+                // $('html, body').stop().animate({scrollTop: ($(hashPieces[0]).offset().top + 140)}, 500);
             };
 
-            // onready go to the tab requested in the page hash
-            gotoHashTab();
+            activateHashTab();
 
             // // пишем хэш в строку
             $('.nav a').on('shown.bs.tab', function (e) {
@@ -50,11 +49,11 @@
             });
 
             // when a link within a tab is clicked, go to the tab requested
-            $('.tab-pane a').click(function (event) {
-                if (event.target.hash) {
-                    gotoHashTab(event.target.hash);
-                }
-            });
+            // $('.tab-pane a').click(function (event) {
+            //     if (event.target.hash) {
+            //         activateHashTab(event.target.hash);
+            //     }
+            // });
 
         }());
     });

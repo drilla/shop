@@ -4,10 +4,10 @@
 $(document).ready(function () {
 
 
-        var spy = new ScrollSpy('#js-scrollspy', {
-            nav: '.js-scrollspy-nav > li > a',
-            className: 'active'
-        });
+    var spy = new ScrollSpy('#js-scrollspy', {
+        nav: '.js-scrollspy-nav > li > a',
+        className: 'active'
+    });
 
     //    Слайдер
     $(".owl_high").owlCarousel({
@@ -20,49 +20,15 @@ $(document).ready(function () {
     });
 
 
-//    Нажатие на кнопку Купить
-    $('body').on('click', 'button.js-order', function (e) {
-        var honeyMoney = $('#hm').val();
-        var $btn = $(e.currentTarget);
-
-        if (honeyMoney !== 'undefined') {
-
-            if ($btn.attr('disbled') === 'disabled') {
-                return false;
-            }
-
-            var giftPrice = $btn.data('price');
-
-            if (honeyMoney >= giftPrice) {
-                var url = $btn.data('url');
-
-                $btn.attr('disabled', true).text('Подождите...');
-
-                window.location.href = url;
-            } else {
-                var giftImgSrc = $btn.closest('.card').children('.card__img').find('img').attr('src');
-                var modal = $('#notEnoughPoints');
-                $('#offer-modal-img').attr('src', giftImgSrc);
-                modal.modal('show');
-            }
-        } else {
-            //Показываем текст в модальном окне вместо alert()
-            e.stopImmediatePropagation();
-            $btn.attr('data-toggle', 'modal')
-                    .attr('data-modal-content', '<p class="fs-20 mb-0">Вам нужно войти или зарегистрироваться для покупки товаров!</p>')
-                    .attr('data-container-selector', '#commonModalContainer')
-                    .attr('data-target', '#onlyWithGiftModal');
-            $btn.trigger('click');
-        }
-    });
-
-//    Вспомогательная анимация слайдера товаров
+    /**
+     * Вспомогательная анимация слайдера товаров
+     */
     (function () {
         var slider = $('.owl_nohb');
         
-        if (slider.length != 0) {
+        if (slider.length !== 0) {
             $(window).on('scroll', function () {
-                if ($(slider).isInViewport() && localStorage.getItem('promoSlideMove') != 'done') {
+                if ($(slider).isInViewport() && localStorage.getItem('promoSlideMove') !== 'done') {
 
                     setTimeout(function () {
                         slider.trigger('next.owl.carousel', [500]);
@@ -79,7 +45,9 @@ $(document).ready(function () {
 
     }());
 
-//    Активация ленивой загрузки для блока
+    /**
+     * Активация ленивой загрузки для блока
+     */
     (function () {
         var scrollArea = $('.scroll-x');
         var waiting = false;
@@ -99,4 +67,35 @@ $(document).ready(function () {
         });
 
     }());
+
+
+    /**
+     * управление меню
+     */
+    $('.icon_menu, .menu__close, .overlay').on('click', function () {
+        $('.menu, .overlay').toggleClass('active');
+    });
+
+
+    /**
+     * Прокрутка меню
+     */
+    $('.menu__list a').on('click', function (e) {
+        e.preventDefault();
+
+        var url = document.URL;
+        var hash = this.hash;
+        var idHash = $(this).attr('href');
+        var $target = $(idHash);
+
+        if ($target.length !== 1) return;
+
+        $('html, body').stop().animate({scrollTop: ($target.offset().top - 120)}, 1000);
+        window.location.hash = hash;
+        $('.menu, .overlay').removeClass('active');
+    });
+
+
+    // включаем прокрутку до якоря
+    goToAncor();
 });

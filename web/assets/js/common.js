@@ -25,6 +25,25 @@ function Animation() {
     });
 }
 
+
+/**
+ *  Прокрутка до якоря
+ */
+function goToAncor() {
+
+    if (window.location.hash) {
+        var id = window.location.hash.substr(1);
+
+        if (!id) return;
+
+        var $target = $('#' + id);
+
+        if ($target.length < 1 ) return;
+
+        $('html, body').stop().animate({scrollTop: ($target.offset().top + 140)}, 500);
+    }
+}
+
 //    Ленивая загрузка изображений
 var blazy = new Blazy({
     offset: 500,
@@ -47,102 +66,6 @@ var blazy = new Blazy({
 (function ($) {
     $(document).ready(function() {
         'use strict';
-
-        /**
-         * загрузка содержимого в модальное окно по клику на кнопке.
-         * либо по урл тибо текст.
-         *
-         * у кнопки указать
-         * data-modal-href - адрес для загрузки содержимого  (имеет приоритет перед текстом)
-         * data-modal-content - текст для контейнера
-         * data-target     - селектор для модального окна (напр #modal_id)
-         * data-container-selector - куда загрузить полученное содержимое (сам контейнер останется)
-         */
-        $('body').on('click', '[data-modal-href], [data-modal-content]', function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-
-            var $button = $(this);
-            var url = $button.attr('data-modal-href');
-            var text = $button.attr('data-modal-content');
-            var $modal = $($button.attr('data-target'));
-            var $targetContainer = null;
-            var targetContainerDefaultSelector = '.modal-body';
-            var targetContainerCustomSelector = $button.data('container-selector');
-
-            //пытаемся определить контейнер для загрузки из дата-аттрибута
-            if (targetContainerCustomSelector !== undefined) {
-                var $candidateObject = $modal.parent().find(targetContainerCustomSelector);
-                if ($candidateObject.length === 1) {
-                    $targetContainer = $candidateObject;
-                }
-            }
-
-            //контейнер по умолчанию
-            if ($targetContainer === null) {
-                $targetContainer = $modal.find(targetContainerDefaultSelector);
-            }
-
-            if (!$targetContainer) {
-                return false;
-            }
-
-            if (url) {
-                $targetContainer.load(url);
-            } else {
-                $targetContainer.html(text);
-            }
-            $modal.modal('show');
-        });
-
-        /**
-         *  Прокрутка до якоря
-         */
-        (function () {
-
-            if (window.location.hash) {
-                var id = window.location.hash.substr(1);
-
-                if (!id) return;
-
-                var $target = $('#' + id);
-
-                if ($target.length < 1 ) return;
-
-                $('html, body').stop().animate({scrollTop: ($target.offset().top + 140)}, 500);
-            }
-        }());
-
-        /**
-         * управление меню
-         */
-        $('.icon_menu, .menu__close, .overlay').on('click', function () {
-            $('.menu, .overlay').toggleClass('active');
-        });
-
-        /**
-         * Прокрутка меню
-         */
-        $('.menu__list a').on('click', function (e) {
-            e.preventDefault();
-
-            var url = document.URL;
-            var hash = this.hash;
-            var idHash = $(this).attr('href');
-            var $target = $(idHash);
-
-            if ($target.length !== 1) return;
-
-             // Если это страница заказа, то переходим на главную
-            if (url.search('order') !== -1) {
-                window.location = "/" + idHash;
-                return false;
-            }
-
-            $('html, body').stop().animate({scrollTop: ($target.offset().top - 141)}, 1000);
-            window.location.hash = hash;
-            $('.menu, .overlay').removeClass('active');
-        });
 
         /**
          * Для радиокнопок

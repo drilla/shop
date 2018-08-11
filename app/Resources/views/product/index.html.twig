@@ -17,7 +17,7 @@
     <div class="product__product-card">
         <div class="container">
             <div class="row mb-45">
-                <div class="col-sm-5 main-padding">
+                <div class="col-sm-5 col-xl-4 main-padding">
                     <div class="owl-carousel owl-theme product__main-slider">
                         {% for image in product.images  %}
                             <div data-fancybox="gallery" href="{{ path('product_image', {'product_id':product.id, 'file_name': image.fileName}) | imagine_filter('thumb_800_wm_topped') }}">
@@ -28,7 +28,7 @@
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col-sm-7 main-padding">
+                <div class="col-sm-7 col-xl-5 main-padding">
                     <div class="product__info fs-18">
                         <h1 class="fs-30 mb-4">{{ product.name }}</h1>
                         <div class="mb-4">

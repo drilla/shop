@@ -13,7 +13,7 @@
     <body class="route-{{ app.request.attributes.get("_route")  }}">
         <div class="overlay"></div>
 
-        {% include 'layout/block/menu.html.twig' %}
+        {% block hashMenu %}{% endblock %}
 
         {% include 'layout/block/header.html.twig' %}
 
