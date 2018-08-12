@@ -9,13 +9,14 @@
             <p>Оставьте свой номер телефона, и мы вам обязательно перезвоним!</p>
 
             <form id="w0" class="form form_wish" action="//market.adbees.com/add-honey-item" method="post">
-                <input type="hidden"  name='Ticket[iAgree]' value="1">
-                <input type="hidden"  name='Ticket[theme]' value="Хочу новый товар">
-
             <div class="d-flex flex-column flex-md-row align-items-center mb-3">
                 <input type="tel" class="form__text mr-0 mb-3 mb-md-0 mr-md-45" name='Ticket[message]' required=""
                        placeholder="Телефон">
-                <button type="submit" class="btn">отправить</button>
+                <button type="submit" class="btn"
+                        data-toggle="modal"
+                        data-target="#callFormModal"
+                        >Жду звонка!
+                </button>
             </div>
 
             </form>

@@ -1,15 +1,23 @@
 <footer>
     <div class="container text-center">
         <div class="row">
-            <div class="col-sm-6">
-                <div>
-                    <a>Контакты</a>
+            <div class="col-sm-4">
+                <ul class="footer__links">
+                    <li>Контакты</li>
+                    <li>Доставка</li>
+                    <li>Документы</li>
+                    <li>О компании</li>
+                </ul>
+            </div>
+            <div class="col-sm-8">
+                <div class="footer__logo mb-45">
+                    <img src="{{ asset('assets/img/logo.svg') }}"/>
                 </div>
+                <div>
+                    ООО "Здоров"<br class="d-inline d-md-none"> © {{ "now"|date('Y') }} все права защищены
+                </div>
+                <div>Юридический адрес: г. Тверь, Петербургское шоссе 53а</div>
             </div>
         </div>
-        <div>
-            ООО "Здоров"<br class="d-inline d-md-none"> © {{ "now"|date('Y') }} все права защищены
-        </div>
-        <div>Юридический адрес: г. Тверь, Петербургское шоссе 53а</div>
     </div>
 </footer>

@@ -3,4 +3,14 @@ footer {
   padding: 2rem 0;
   background-color: $main-color;
   color: $color-main-font;
+
+  .footer__logo {
+    >img {
+      width: 17rem;
+    }
+  }
+
+  .footer__links {
+    list-style:none;
+  }
 }

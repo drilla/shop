@@ -2,11 +2,7 @@
 
 {% for product in specialOffers  %}
 
-        <div class="card cursor-pointer"
-             data-toggle="modal"
-             data-target="#modalPoints"
-             data-container-selector="#modalPointsBody"
-        >
+        <div class="card cursor-pointer">
             <a href="{{ url('product', {'id': product.id}) }}" class="link-invisible">
                 <div class="card__img">
                     <img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
