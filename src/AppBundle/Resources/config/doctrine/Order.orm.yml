@@ -1,0 +1,17 @@
+AppBundle\Entity\Order:
+  type: entity
+  table: "`order`" # это слово зарезервировано MYSQL
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 255
+    phone:
+      type: string
+      length: 255
+    comment:
+      type: string
+      length: 255

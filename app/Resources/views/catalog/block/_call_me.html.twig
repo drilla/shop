@@ -4,22 +4,22 @@
             <img class="sec_12__left-img b-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
                  data-src="{{ asset('img/static/cream2.png') | imagine_filter('wm_topped') }}" alt=""/>
         </div>
-        <div class="col-xl-6 col-lg-8">
+        <div class="col-xl-6 col-lg-8 js-call-form-container">
             <p class="fs-30 lh-117 mb-6"><b>Остались вопросы?</b></p>
             <p>Оставьте свой номер телефона, и мы вам обязательно перезвоним!</p>
 
-            <form id="w0" class="form form_wish" action="//market.adbees.com/add-honey-item" method="post">
-            <div class="d-flex flex-column flex-md-row align-items-center mb-3">
-                <input type="tel" class="form__text mr-0 mb-3 mb-md-0 mr-md-45" name='Ticket[message]' required=""
-                       placeholder="Телефон">
-                <button type="submit" class="btn"
-                        data-toggle="modal"
-                        data-target="#callFormModal"
-                        >Жду звонка!
-                </button>
-            </div>
-
-            </form>
+            {{ form_start(orderForm) }}
+                <div class="d-flex flex-column flex-md-row align-items-center mb-3">
+                        {{ form_widget(orderForm.name, { 'attr': {'class': 'form__text mr-0 mb-3 mb-md-0 mr-md-45'} } ) }}
+                        {{ form_widget(orderForm.phone, { 'attr': {'class': 'form__text mr-0 mb-3 mb-md-0 mr-md-45'} } ) }}
+                </div>
+                <div class="d-flex flex-column flex-md-row align-items-center mb-3">
+                    {{ form_widget(orderForm.comment, { 'attr': {'class': 'form__text mr-0 mb-3 mb-md-0 mr-md-45'}}) }}
+                </div>
+                <div class="d-flex flex-column flex-md-row align-items-center mb-3">
+                    {{ form_widget(orderForm.save, {'attr': {'class': 'btn'}} ) }}
+                </div>
+            {{ form_end(orderForm)}}
         </div>
     </div>
 </div>

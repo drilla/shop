@@ -1,5 +1,6 @@
 .form{
 
+
     &__text{
         width: 100%;
         border-radius: 5px;
@@ -8,7 +9,7 @@
         outline: none;
         background-color: $border-color;
         margin-bottom: 1px;
-        color: $text-color;
+        color: $main-color;
 
         &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
             color: $text-color-grey2;

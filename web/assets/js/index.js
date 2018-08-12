@@ -95,6 +95,32 @@ $(document).ready(function () {
         $('.menu, .overlay').removeClass('active');
     });
 
+    /**
+     * Аякс сабмит формы
+     */
+    $('body').on('submit', '.js-call-form-container form', function (event) {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        var $form = $(this);
+
+        var formDataRaw = $form.serializeArray();
+        var formData = {};
+        $.each(formDataRaw,
+            function(i, v) {formData[v.name] = v.value;}
+            );
+
+        $.ajax({
+            url : $form.attr('action'),
+            method: 'post',
+            data : formData,
+            success: function(data){
+                alert(data);
+                },
+            failure: function(errMsg) {
+                alert(errMsg);
+            }
+        })
+    });
 
     // включаем прокрутку до якоря
     goToAncor();
