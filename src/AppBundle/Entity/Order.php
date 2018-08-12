@@ -11,6 +11,17 @@ class Order
     private $name;
     private $phone;
     private $comment;
+    private $product;
+    private $count;
+
+    public function getCount() : ? int {
+        return $this->count;
+    }
+
+    public function setCount(int $count = null) : Order {
+        $this->count = $count;
+        return $this;
+    }
 
     public function getId() : ? int {
         return $this->id;
@@ -21,10 +32,19 @@ class Order
         return $this;
     }
 
+    public function getProduct() : ? Product  {
+        return $this->product;
+    }
+
+    public function setProductId(Product $product = null) : Order {
+        $this->product = $product;
+        return $this;
+    }
+
     public function getComment() : ? string {
         return $this->comment;
     }
-    
+
     public function setComment($comment) : Order {
         $this->comment = $comment;
         return $this;

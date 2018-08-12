@@ -32,6 +32,19 @@
 
     &_9{
         padding: 4rem 0 3.5rem;
+        .about_prod {
+            &__num {
+                font-size: 6rem;
+                font-weight: 900;
+                color:$text-color-grey3;
+                width: 7.5rem;
+                line-height: 1;
+            }
+            &__desc {
+                font-size: 3rem;
+                padding-top: 0.5rem
+            }
+        }
     }
 
     &_11{

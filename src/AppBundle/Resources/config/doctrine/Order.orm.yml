@@ -16,3 +16,13 @@ AppBundle\Entity\Order:
       type: string
       length: 255
       nullable : true
+    count:
+      type: integer
+      nullable: true
+  manyToOne:
+    product:
+      targetEntity: AppBundle\Entity\Product
+      joinColumn:
+        name: product_id
+        referencedColumnName: id
+

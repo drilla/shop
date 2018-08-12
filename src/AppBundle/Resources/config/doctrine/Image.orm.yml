@@ -10,9 +10,6 @@ AppBundle\Entity\Image:
             column: file_name
             type: string
             length: 255
-#        productId:
-#            column: product_id
-#            type: integer
         isFace:
             column: is_face
             type: boolean
