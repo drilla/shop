@@ -96,29 +96,32 @@ $(document).ready(function () {
     });
 
     /**
-     * Аякс сабмит формы
+     * Аякс сабмит форм звонка
+     *
+     * нужно положить форму в контейнер .js-call-form-container
+     * у сабмита можно указать id модального окна для открытия после успешного лида
+     * data-success-modal="#modalId"
      */
     $('body').on('submit', '.js-call-form-container form', function (event) {
         event.stopImmediatePropagation();
         event.preventDefault();
         var $form = $(this);
 
-        var formDataRaw = $form.serializeArray();
-        var formData = {};
-        $.each(formDataRaw,
-            function(i, v) {formData[v.name] = v.value;}
-            );
+        var $submit = $form.find('[type="submit"]');
 
         $.ajax({
             url : $form.attr('action'),
             method: 'post',
-            data : formData,
-            success: function(data){
-                alert(data);
-                },
-            failure: function(errMsg) {
-                alert(errMsg);
-            }
+            data : serializeForm($form),
+            success: function(data) {
+                if (data.status === 1) {
+                    if ($submit.data('success-modal')) {
+                        $($submit.data('success-modal')).modal('show');
+                    }
+                } else {
+                    //ничего не делаем в случае ошибки
+                }
+            },
         })
     });
 

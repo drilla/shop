@@ -25,6 +25,21 @@ function Animation() {
     });
 }
 
+/**
+ * приводим данные формы в правильный формат
+ * {formName['name'] : value}
+ *
+ * @return object
+ */
+function serializeForm($form) {
+    var formDataRaw = $form.serializeArray();
+    var formData = {};
+    $.each(formDataRaw,
+        function(i, v) {formData[v.name] = v.value;}
+    );
+
+    return formData;
+}
 
 /**
  *  Прокрутка до якоря

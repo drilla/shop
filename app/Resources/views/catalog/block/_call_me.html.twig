@@ -17,7 +17,7 @@
                     {{ form_widget(orderForm.comment, { 'attr': {'class': 'form__text mr-0 mb-3 mb-md-0 mr-md-45'}}) }}
                 </div>
                 <div class="d-flex flex-column flex-md-row align-items-center mb-3">
-                    {{ form_widget(orderForm.save, {'attr': {'class': 'btn'}} ) }}
+                    {{ form_widget(orderForm.save, {'attr': {'class': 'btn', 'data-success-modal':'#callFormModal'}} ) }}
                 </div>
             {{ form_end(orderForm)}}
         </div>
