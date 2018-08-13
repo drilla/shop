@@ -23,7 +23,7 @@
 <div class="container-fluid bg-grey">
     <div class="row pt-5 pb-5 px-5 px-md-7">
         <div class="col-12 mb-2">
-            <p class="fs-15"><b>Баллы по гео</b></p>
+            <p class="fs-15"><strong>Баллы по гео</strong></p>
         </div>
         <div class="col-12 column-2 fs-13">
 
@@ -33,7 +33,7 @@
                         <img class="mr-2" src="<?= \frontend\helpers\Country::flagUrl($bonusRate->country->iso) ?>">
                         <?= $bonusRate->country->name_ru ?>
                     </div>
-                    <span class="text-uppercase"><b><?= $bonusRate->value ?> HM</b></span>
+                    <span class="text-uppercase"><strong><?= $bonusRate->value ?> HM</strong></span>
                 </div>
             <?php endforeach; ?>
 
