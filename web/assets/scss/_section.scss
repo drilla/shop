@@ -1,138 +1,150 @@
-.sec{
-    .sec-canvas {
-        background-color: $block-bg-color;
-        color: $main-color;
+.sec {
+  .sec-canvas {
+    background-color: $block-bg-color;
+    color: $main-color;
+  }
+
+  padding: 3rem 0 1rem;
+  overflow: hidden;
+  background-color: $secondary-color;
+  color: $bg-color;
+
+  &_1 {
+    text-align: center;
+    padding: 0;
+    background: #fff;
+    .section-content {
+      padding: 4rem 0 6.5rem;
     }
 
-    padding: 3rem 0 1rem;
-    overflow: hidden;
-    background-color: $secondary-color;
-    color: $bg-color;
-
-    &_1{
-        text-align: center;
-        padding: 0;
-        background: #fff;
-        .section-content {
-            padding: 4rem 0 6.5rem;
-        }
-    }
-
-    &_2{
-        padding: 7rem 0 1rem; 
-    }
-
-    &_7{
-        padding: 4rem 0 3rem;
-    }
-
-    &_8{
-        padding: 4rem 0 1rem;
-    }
-
-    &_9{
-        padding: 4rem 0 3.5rem;
-        .about_prod {
-            &__num {
-                font-size: 6rem;
-                font-weight: 900;
-                color:$text-color-grey3;
-                width: 7.5rem;
-                line-height: 1;
-            }
-            &__desc {
-                font-size: 3rem;
-                padding-top: 0.5rem
-            }
-        }
-    }
-
-    &_11{
-        padding: 6.4rem 0 0;
-    }
-
-    &_12{
-
-        &__left-img {
-            width:66rem;
-            position: absolute;
-            bottom: -6rem;
-            left: -1.6rem;
+    @media (max-width: 768px) {
+      & {
+        .h1 {
+          font-size: 4rem;
         }
 
-        @media (max-width: 1209px) {
-             &__left-img {
-                max-width: 34rem;
-            }
+        .container__mini {
+          padding: 0 1rem;
         }
+      }
+    }
+  }
 
-        @media (max-width: 1023px) {
-            &__left-img {
-                display: none;
-            }
-        }
+  &_2 {
+    padding: 7rem 0 1rem;
+  }
 
-        .row{
-            margin: 0;
-            padding-top: 6rem;
-            padding-bottom: 6rem;
-            position: relative;
-        }
+  &_7 {
+    padding: 4rem 0 3rem;
+  }
 
-        padding: 3rem 0 7.5rem;
+  &_8 {
+    padding: 4rem 0 1rem;
+  }
+
+  &_9 {
+    padding: 4rem 0 3.5rem;
+    .about_prod {
+      &__num {
+        font-size: 6rem;
+        font-weight: 900;
+        color: $text-color-grey3;
+        width: 7.5rem;
+        line-height: 1;
+      }
+      &__desc {
+        font-size: 3rem;
+        padding-top: 0.5rem
+      }
+    }
+  }
+
+  &_11 {
+    padding: 6.4rem 0 0;
+  }
+
+  &_12 {
+
+    &__left-img {
+      width: 66rem;
+      position: absolute;
+      bottom: -6rem;
+      left: -1.6rem;
     }
 
-    &_order{
-        padding: 0;
-        margin-bottom: -1.5rem;
+    @media (max-width: 1209px) {
+      &__left-img {
+        max-width: 34rem;
+      }
     }
+
+    @media (max-width: 1023px) {
+      &__left-img {
+        display: none;
+      }
+    }
+
+    .row {
+      margin: 0;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+      position: relative;
+    }
+
+    padding: 3rem 0 7.5rem;
+  }
+
+  &_order {
+    padding: 0;
+    margin-bottom: -1.5rem;
+  }
 
 }
 
-@media (min-width: 768px){
-    .sec{
+@media (min-width: 768px) {
+  .sec {
 
-        &_1{
-            padding: 4rem 0 7.3rem;
-            //background: #fff url(../img/sec1-md.jpg) no-repeat left top;
-        }
+    &_1 {
+      padding: 4rem 0 7.3rem;
     }
-}
-@media (min-width: 1024px){
-    .sec{
-
-        &_1{
-            padding: 6rem 0 7.3rem;
-            //background: #fff url(../img/sec1-lg.jpg) no-repeat left top;
-        }
-    }
-}
-@media (min-width: 1210px){
-    .sec{
-
-        &_1{
-            padding:0;
-            .section-content {
-                min-height:28rem;
-                padding: 8rem 0 8rem;
-                &.section__img {
-                    background: url(../img/static/zdorov-main-opac2.png) no-repeat top right;
-                    background-size: contain;
-                }
-            }
-        }
-    }
+  }
 }
 
-@media (max-width: 1023px){
-    .sec{
+@media (min-width: 1024px) {
+  .sec {
 
-        &_12{
-
-            .row{
-                padding-top: 2rem;
-                padding-bottom: 2rem;
-            }
-        }
+    &_1 {
+      padding: 6rem 0 7.3rem;
     }
+  }
+}
+
+@media (min-width: 1210px) {
+  .sec {
+
+    &_1 {
+      padding: 0;
+      .section-content {
+        min-height: 28rem;
+        padding: 8rem 0 8rem;
+        &.section__img {
+          background: url(../img/static/zdorov-main-opac2.png) no-repeat top right;
+          background-size: contain;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .sec {
+
+    &_12 {
+
+      .row {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+    }
+  }
 }
