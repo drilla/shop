@@ -22,3 +22,7 @@ parameters:
     upload_directory: '%kernel.project_dir%/web/uploads'
 
     upload_base_url: "/uploads"
+
+    # вписать актуальный
+    zcpa_api_key: "Vbt3iela4v3mmUK8TNZ-UFsDPw3X7ben"
+    zcpa_api_route_template: "https://api.zcpa.ru/lead/add?api_key={api_key}&phone={phone}&fio={fio}&ip={ip}&mark={mark}"

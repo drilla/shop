@@ -7,21 +7,15 @@ namespace AppBundle\Entity;
  */
 class Order
 {
+    const IS_SENT = 1;
+
     private $id;
     private $name;
     private $phone;
     private $comment;
     private $product;
     private $count;
-
-    public function getCount() : ? int {
-        return $this->count;
-    }
-
-    public function setCount(int $count = null) : Order {
-        $this->count = $count;
-        return $this;
-    }
+    private $is_sent = false;
 
     public function getId() : ? int {
         return $this->id;
@@ -29,6 +23,24 @@ class Order
 
     public function setId(int $id) : Order {
         $this->id = $id;
+        return $this;
+    }
+
+    public function isSent() : bool {
+        return $this->is_sent;
+    }
+
+    public function setIsSent(bool $isSent) : Order {
+        $this->is_sent = $isSent;
+        return $this;
+    }
+
+    public function getCount() : ? int {
+        return $this->count;
+    }
+
+    public function setCount(int $count = null) : Order {
+        $this->count = $count;
         return $this;
     }
 

@@ -19,6 +19,10 @@ AppBundle\Entity\Order:
     count:
       type: integer
       nullable: true
+    is_sent:
+      type: boolean
+      options:
+        default: 0
   manyToOne:
     product:
       targetEntity: AppBundle\Entity\Product
