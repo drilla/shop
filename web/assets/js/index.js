@@ -68,14 +68,12 @@ $(document).ready(function () {
 
     }());
 
-
     /**
      * управление меню
      */
     $('.icon_menu, .menu__close, .overlay').on('click', function () {
         $('.menu, .overlay').toggleClass('active');
     });
-
 
     /**
      * Прокрутка меню
