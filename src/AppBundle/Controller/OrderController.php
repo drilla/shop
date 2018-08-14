@@ -26,6 +26,7 @@ class OrderController extends AbstractController
         if ( $form->isValid()) {
             /** @var Order $order */
             $order = $form->getData();
+            $order->setIp($this->_getIp($request));
             $this->_getEntityManager()->persist($order);
             $this->_getEntityManager()->flush();
         } else {
@@ -33,5 +34,14 @@ class OrderController extends AbstractController
         }
 
         return $this->json(['status' => self::STATUS_OK]);
+    }
+
+    private function _getIp(Request $request) : ? string {
+        $ip = $request->getClientIp();
+        if($ip == 'unknown'){
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+
+        return $ip;
     }
 }
