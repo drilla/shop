@@ -23,6 +23,9 @@ AppBundle\Entity\Order:
       type: boolean
       options:
         default: 0
+    ip:
+      type: string
+      length: 255
   manyToOne:
     product:
       targetEntity: AppBundle\Entity\Product

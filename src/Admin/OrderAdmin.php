@@ -20,6 +20,7 @@ class OrderAdmin extends AbstractAdmin
             ->add('phone')
             ->add('count')
             ->add('comment')
+            ->add('ip')
         ;
     }
 
@@ -37,9 +38,10 @@ class OrderAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper) : void {
         $listMapper->addIdentifier('id');
         $listMapper->addIdentifier('product', null, ['associated_property' => 'name']);
-        $listMapper->addIdentifier('name');
-        $listMapper->addIdentifier('phone');
-        $listMapper->addIdentifier('count');
-        $listMapper->addIdentifier('comment');
+        $listMapper->add('name');
+        $listMapper->add('phone');
+        $listMapper->add('ip');
+        $listMapper->add('count');
+        $listMapper->add('comment');
     }
 }

@@ -20,7 +20,7 @@ class Stream
         return $this;
     }
 
-    public function getStreamId() : ? int {
+    public function getStreamId() : ? string {
         return $this->streamId;
     }
 
@@ -33,7 +33,7 @@ class Stream
         return $this->product;
     }
 
-    public function setProduct(int $product) : Stream {
+    public function setProduct(Product $product) : Stream {
         $this->product = $product;
         return $this;
     }

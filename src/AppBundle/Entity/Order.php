@@ -11,12 +11,13 @@ class Order
 
     private $id;
     private $name;
+    private $ip;
+
     private $phone;
     private $comment;
     private $product;
     private $count;
     private $is_sent = false;
-
     public function getId() : ? int {
         return $this->id;
     }
@@ -77,6 +78,15 @@ class Order
 
     public function setPhone(string $phone) : Order  {
         $this->phone = $phone;
+        return $this;
+    }
+
+    public function getIp() : ? string {
+        return $this->ip;
+    }
+
+    public function setIp($ip) : Order {
+        $this->ip = $ip;
         return $this;
     }
 }
