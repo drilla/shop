@@ -26,6 +26,8 @@ class ProductAdmin extends AbstractAdmin
             ->add('fakePrice', TextType::class, ['required' => false,])
             ->add('category', ChoiceType::class, ['choices' => array_flip(ProductHelper::categoryLabels())])
             ->add('isDefault', CheckboxType::class, ['required' => false,])
+            ->add('rate', TextType::class)
+            ->add('rateCount', TextType::class)
             ->add('description', TextType::class)
             ->add('consist', CKEditorType::class)
             ->add('article', CKEditorType::class)
@@ -50,6 +52,8 @@ class ProductAdmin extends AbstractAdmin
             ->addIdentifier('name')
             ->add('slug', 'text', ['editable' => true])
             ->add('price', 'text', ['editable' => true])
+            ->add('rate', 'text', ['editable' => true])
+            ->add('rateCount', 'text', ['editable' => true])
             ->add('fakePrice', 'text', ['editable' => true])
             ->add('isDefault', null, ['editable' => true])
             ->add('category', 'choice', [

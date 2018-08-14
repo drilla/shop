@@ -45,10 +45,13 @@
                             <strong>{{ product.price }} ₽</strong>
                         </div>
                         <div>
-                            Оценка покупателей:
+                            <span>Оценка покупателей: </span><span class="fs-45">{{ product.rate }}</span>
                         </div>
                         <div>
-                            {{ product.rating|rating(10) }}
+                            <span class="c-grey">Оценили: {{ product.rateCount }}</span>
+                        </div>
+                        <div>
+                            {{ product.rate|rating(10) }}
                         </div>
 
                         <button class="btn btn-buy">Купить</button>

@@ -28,6 +28,16 @@ AppBundle\Entity\Product:
         consist:
             type: text
             nullable: true
+        rate:
+            type: float
+            nullable: false
+            options:
+              default: 8.5
+        rateCount:
+            type: integer
+            nullable: false
+            options:
+              default: 186
         article:
             type: text
             nullable: true

@@ -55,6 +55,12 @@ class Product
     /** @var  string */
     private $article;
 
+    /** @var  float */
+    private $rate;
+
+    /** @var  integer */
+    private $rateCount;
+
     private $isDefault = false;
 
 
@@ -184,6 +190,24 @@ class Product
 
     public function setIsDefault(bool $isDefault) : Product {
         $this->isDefault = $isDefault;
+        return $this;
+    }
+
+    public function getRate() : ? float {
+        return $this->rate;
+    }
+
+    public function setRate(float $rate) : Product {
+        $this->rate = $rate;
+        return $this;
+    }
+
+    public function getRateCount() : ? int {
+        return $this->rateCount;
+    }
+
+    public function setRateCount(int $rateCount) : Product {
+        $this->rateCount = $rateCount;
         return $this;
     }
 }
