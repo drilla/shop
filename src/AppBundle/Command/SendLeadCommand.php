@@ -3,6 +3,7 @@
 namespace AppBundle\Command;
 
 use AppBundle\Entity\Order;
+use AppBundle\Entity\Stream;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
@@ -59,18 +60,20 @@ class SendLeadCommand extends ContainerAwareCommand
     }
 
     private function _sendOrder(Order $order) {
-
-        $router = $this->getContainer()->get('router');
-        $context = $router->getContext();
-        $context->setHost('example.com');
-        $context->setScheme('https');
-        $context->setBaseUrl('my/path');
-
         $urlTemplate = $this->getContainer()->getParameter('zcpa_api_route_template');
+
+        $repoStream = $this->getContainer()->get('doctrine')->getRepository(Stream::class);
+
+        $product = $order->getProduct();
+        /** @var Stream $stream */
+        $stream = $repoStream->findOneBy(['product'=> $order->getProduct()->getId()]);
 
         $url = $urlTemplate;
 
         $url = str_replace('{api_key}', $this->getContainer()->getParameter('zcpa_api_key'), $url);
+        $url = str_replace('{ip}', $order->getIp(), $url);
+        $url = str_replace('{phone}', $order->getPhone(), $url);
+        $url = str_replace('{mark}', $stream->getStreamId(), $url);
 
         $ch = curl_init($url);
 

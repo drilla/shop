@@ -21,6 +21,8 @@ AppBundle\Entity\Product:
             scale: 2
         description:
             type: text
+        isDefault:
+            type: boolean
         category:
             type: integer
         consist:

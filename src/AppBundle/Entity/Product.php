@@ -55,10 +55,12 @@ class Product
     /** @var  string */
     private $article;
 
+    private $isDefault = false;
+
+
     public function __construct() {
         $this->images = new ArrayCollection();
     }
-
     public function getImages(): Collection {
         return $this->images;
     }
@@ -174,5 +176,14 @@ class Product
         }
 
         return $faceImage ? $faceImage : null;
+    }
+
+    public function isDefault() : bool {
+        return $this->isDefault;
+    }
+
+    public function setIsDefault(bool $isDefault) : Product {
+        $this->isDefault = $isDefault;
+        return $this;
     }
 }

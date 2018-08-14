@@ -23,6 +23,10 @@ parameters:
 
     upload_base_url: "/uploads"
 
+
+    # продукт по умолчанию для общих звонков
+    default_product_id: 1
+
     # вписать актуальный
     zcpa_api_key: "Vbt3iela4v3mmUK8TNZ-UFsDPw3X7ben"
     zcpa_api_route_template: "https://api.zcpa.ru/lead/add?api_key={api_key}&phone={phone}&fio={fio}&ip={ip}&mark={mark}"

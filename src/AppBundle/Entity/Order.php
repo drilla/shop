@@ -49,7 +49,7 @@ class Order
         return $this->product;
     }
 
-    public function setProductId(Product $product = null) : Order {
+    public function setProduct(Product $product = null) : Order {
         $this->product = $product;
         return $this;
     }

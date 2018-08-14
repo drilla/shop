@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Order;
+use AppBundle\Entity\Product;
 use AppBundle\Form\OrderType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -27,6 +28,15 @@ class OrderController extends AbstractController
             /** @var Order $order */
             $order = $form->getData();
             $order->setIp($this->_getIp($request));
+
+            /**
+             * установим продукт по умолчанию
+             */
+            if (!$order->getProduct()) {
+                $defaultProduct = $this->getDoctrine()->getRepository(Product::class)->findOneBy(['isDefault' => 1]);
+                $order->setProduct($defaultProduct);
+            }
+
             $this->_getEntityManager()->persist($order);
             $this->_getEntityManager()->flush();
         } else {
@@ -38,7 +48,7 @@ class OrderController extends AbstractController
 
     private function _getIp(Request $request) : ? string {
         $ip = $request->getClientIp();
-        if($ip == 'unknown'){
+        if ($ip == 'unknown') {
             $ip = $_SERVER['REMOTE_ADDR'];
         }
 

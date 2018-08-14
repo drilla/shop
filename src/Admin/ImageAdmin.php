@@ -54,14 +54,13 @@ class ImageAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $dataGridMapper) : void {
         $dataGridMapper
-            ->add('product', 'doctrine_orm_model_autocomplete'  ,[], null, ['property'=>'title'] )
+            ->add('product', 'doctrine_orm_model_autocomplete'  , [], null, ['property'=>'name'] )
             ->add('isFace')
-            ->add('fileName')
         ;
     }
 
     protected function configureListFields(ListMapper $listMapper) : void {
-        $listMapper->addIdentifier('name');
+        $listMapper->addIdentifier('id');
         $listMapper->addIdentifier('product', null, ['associated_property' => 'name']);
         $listMapper->addIdentifier('isFace');
     }

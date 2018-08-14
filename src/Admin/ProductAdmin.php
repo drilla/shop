@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
@@ -24,6 +25,7 @@ class ProductAdmin extends AbstractAdmin
             ->add('price', TextType::class)
             ->add('fakePrice', TextType::class, ['required' => false,])
             ->add('category', ChoiceType::class, ['choices' => array_flip(ProductHelper::categoryLabels())])
+            ->add('isDefault', CheckboxType::class, ['required' => false,])
             ->add('description', TextType::class)
             ->add('consist', CKEditorType::class)
             ->add('article', CKEditorType::class)
@@ -38,6 +40,7 @@ class ProductAdmin extends AbstractAdmin
             ->add('price')
             ->add('category')
             ->add('description')
+            ->add('isDefault')
         ;
     }
 
@@ -48,6 +51,7 @@ class ProductAdmin extends AbstractAdmin
             ->add('slug', 'text', ['editable' => true])
             ->add('price', 'text', ['editable' => true])
             ->add('fakePrice', 'text', ['editable' => true])
+            ->add('isDefault', null, ['editable' => true])
             ->add('category', 'choice', [
                     'choices'  => ProductHelper::categoryLabels(),
                     'editable' => true,

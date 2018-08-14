@@ -2,11 +2,13 @@
 
 namespace Admin;
 
+use AppBundle\Entity\Product;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 /**
  *  @author drilla
@@ -36,12 +38,14 @@ class OrderAdmin extends AbstractAdmin
     }
 
     protected function configureListFields(ListMapper $listMapper) : void {
-        $listMapper->addIdentifier('id');
-        $listMapper->addIdentifier('product', null, ['associated_property' => 'name']);
-        $listMapper->add('name');
-        $listMapper->add('phone');
-        $listMapper->add('ip');
-        $listMapper->add('count');
-        $listMapper->add('comment');
+        $listMapper
+            ->addIdentifier('id')
+           ->addIdentifier('product', null, ['associated_property' => 'name'])
+           ->add('name')
+           ->add('phone')
+           ->add('ip')
+           ->add('count')
+           ->add('comment')
+        ;
     }
 }
