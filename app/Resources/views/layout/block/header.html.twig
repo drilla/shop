@@ -8,21 +8,24 @@
 
             <div class="header__block header__block_logo">
                 <a class="logo-wrapper" href="{{ absolute_url('/') }}">
-                    <img class="logo" src="{{ asset('assets/img/logo.svg') }}" alt=""/>
+                    <img class="logo" src="{{ asset('assets/img/logo.svg') }}" alt="Здоров лого"/>
                 </a>
             </div>
 
 
-            <a href="" target="_blank" class="header__block header__block_exit link link_header d-none d-lg-flex">
+            <a href="{{ url('catalog') }}" class="header__block header__block_exit link link_header d-none d-lg-flex">
+                <nobr>Каталог</nobr>
+            </a>
+            <a href="{{ url('about_us') }}" class="header__block header__block_exit link link_header d-none d-lg-flex">
                 <nobr>О компании</nobr>
             </a>
-            <a href="" target="_blank" class="header__block header__block_exit link link_header d-none d-lg-flex">
+            <a href="" class="header__block header__block_exit link link_header d-none d-lg-flex">
                 Производство
             </a>
-            <a href="" target="_blank" class="header__block header__block_exit link link_header d-none d-lg-flex">
+            <a href="" class="header__block header__block_exit link link_header d-none d-lg-flex">
                 Документы
             </a>
-            <a href="" target="_blank" class="header__block header__block_exit link link_header d-none d-lg-flex">
+            <a href="" class="header__block header__block_exit link link_header d-none d-lg-flex">
                 Контакты
             </a>
         </div>

@@ -1,0 +1,31 @@
+
+
+{% extends "layout/base.html.twig" %}
+
+{% block javascript %}
+    {{ parent() }}
+
+    {% javascripts filter="?jsqueeze" output="js/app.js"
+    "assets/js/index.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+
+{% block hashMenu%}
+    {#{% include 'layout/block/menu.html.twig' %}#}
+{% endblock %}
+
+
+{% block content %}
+
+    <section class="sec sec_1">
+        {% include 'catalog/block/_slogan.html.twig' %}
+    </section>
+
+    <section class="sec sec_9 aos aos_left" id="rules">
+        {% include 'catalog/block/_rules.html.twig' %}
+    </section>
+
+{% endblock %}

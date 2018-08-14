@@ -73,7 +73,9 @@
           }
 
           &.active{
-            color: $main-color;
+            color: $color-main-font;
+            background-color: $secondary-color;
+            border-color: $color-main-font;
           }
         }
 
@@ -83,6 +85,8 @@
 
   .product__info {
     .product__fake-price {
+      font-size: 3.5rem;
+      color: $text-color-grey3;
       text-decoration: line-through $color-cross-line;
     }
   }
@@ -109,6 +113,14 @@
       &::before {
         color: $main-color-2;
       }
+    }
+  }
+
+  button {
+    &.btn-buy{
+      font-size: 2rem;
+      background-color: $color-main-font;
+      color: darken($secondary-color, 10%);
     }
   }
 
