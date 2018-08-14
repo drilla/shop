@@ -17,7 +17,7 @@ class Order
     private $comment;
     private $product;
     private $count;
-    private $is_sent = false;
+    private $isSent = false;
     public function getId() : ? int {
         return $this->id;
     }
@@ -28,11 +28,11 @@ class Order
     }
 
     public function isSent() : bool {
-        return $this->is_sent;
+        return $this->isSent;
     }
 
     public function setIsSent(bool $isSent) : Order {
-        $this->is_sent = $isSent;
+        $this->isSent = $isSent;
         return $this;
     }
 

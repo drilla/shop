@@ -23,6 +23,7 @@ class OrderAdmin extends AbstractAdmin
             ->add('count')
             ->add('comment')
             ->add('ip')
+            ->add('isSent')
         ;
     }
 
@@ -34,6 +35,7 @@ class OrderAdmin extends AbstractAdmin
             ->add('phone')
             ->add('count')
             ->add('comment')
+            ->add('isSent')
         ;
     }
 
@@ -46,6 +48,7 @@ class OrderAdmin extends AbstractAdmin
             ->add('ip')
             ->add('count')
             ->add('comment')
+            ->add('isSent')
         ;
     }
 }

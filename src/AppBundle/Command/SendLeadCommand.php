@@ -32,23 +32,26 @@ class SendLeadCommand extends ContainerAwareCommand
         $repo = $manager->getRepository(Order::class);
 
         /** @var Order[] $orders */
-        $orders = $repo->createQueryBuilder('o')->where('o.is_sent <> '. Order::IS_SENT)->getQuery()->getResult();
+        $orders = $repo->createQueryBuilder('o')->where('o.isSent <> '. Order::IS_SENT)->getQuery()->getResult();
+
 
         foreach ($orders as $order) {
+            echo "Отправляем лид...";
+
             $result = $this->_sendOrder($order);
 
             if ($result) {
+                //помечаем те, которые успешно переданы
                 $order->setIsSent(true);
                 $manager->persist($order);
             } else {
                 $this->_log('');
             }
         }
-        //засылаем
 
-        //помечаем те, которые успешно переданы
 
-        echo "Отправляем лид...";
+        $manager->flush();
+
         echo "Успешно. \n";
     }
 
@@ -64,7 +67,6 @@ class SendLeadCommand extends ContainerAwareCommand
 
         $repoStream = $this->getContainer()->get('doctrine')->getRepository(Stream::class);
 
-        $product = $order->getProduct();
         /** @var Stream $stream */
         $stream = $repoStream->findOneBy(['product'=> $order->getProduct()->getId()]);
 
@@ -78,7 +80,7 @@ class SendLeadCommand extends ContainerAwareCommand
         $ch = curl_init($url);
 
         curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         $result = curl_exec($ch);
 

@@ -19,7 +19,7 @@ AppBundle\Entity\Order:
     count:
       type: integer
       nullable: true
-    is_sent:
+    isSent:
       type: boolean
       options:
         default: 0
