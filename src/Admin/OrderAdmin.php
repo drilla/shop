@@ -40,12 +40,12 @@ class OrderAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper) : void {
         $listMapper
             ->addIdentifier('id')
-           ->addIdentifier('product', null, ['associated_property' => 'name'])
-           ->add('name')
-           ->add('phone')
-           ->add('ip')
-           ->add('count')
-           ->add('comment')
+            ->addIdentifier('product', null, ['associated_property' => 'name'])
+            ->add('name')
+            ->add('phone')
+            ->add('ip')
+            ->add('count')
+            ->add('comment')
         ;
     }
 }

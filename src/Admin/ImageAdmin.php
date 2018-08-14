@@ -54,7 +54,7 @@ class ImageAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $dataGridMapper) : void {
         $dataGridMapper
-            ->add('product', 'doctrine_orm_model_autocomplete'  , [], null, ['property'=>'name'] )
+            ->add('product', 'doctrine_orm_model_autocomplete'  , [], null, [ 'property'=>'name'] )
             ->add('isFace')
         ;
     }
