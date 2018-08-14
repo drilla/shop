@@ -23,6 +23,12 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Order }
         public: true
+    admin.stream:
+        class: Admin\StreamAdmin
+        arguments: [~, AppBundle\Entity\Stream, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Stream }
+        public: true
     file_manager:
         class: AppBundle\Service\FileManager
         arguments:
