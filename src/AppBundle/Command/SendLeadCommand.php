@@ -8,9 +8,6 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\HttpKernel\Client;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\Router;
 
 /**
  * @author drilla
@@ -40,12 +37,12 @@ class SendLeadCommand extends ContainerAwareCommand
 
             $result = $this->_sendOrder($order);
 
-            if ($result) {
+            if ($result === true) {
                 //помечаем те, которые успешно переданы
                 $order->setIsSent(true);
                 $manager->persist($order);
             } else {
-                $this->_log('');
+                $this->_log($result);
             }
         }
 
@@ -58,8 +55,9 @@ class SendLeadCommand extends ContainerAwareCommand
     /**
      * Логируем ошибку
      */
-    private function _log(string $string) {
-        //todo
+    private function _log(Order $order, $result) {
+        $message = $order->getId() . ' ' . print_r($result, true);
+        $this->getContainer()->get('logger')->info($message, true);
     }
 
     private function _sendOrder(Order $order) {
