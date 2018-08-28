@@ -53,19 +53,20 @@
 
 html{
     font-size: 62.5%;
+    min-height: 100%;
+    position: relative;
 }
 
 body{
-    position: relative;
     background: $secondary-color;
     color: $color-main-font;
     font-family: 'ProximaNova';
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 1.43;
-    height: 100%;
     overflow-x: hidden;
     padding-top: 7rem;
+    margin-bottom: 15rem;
 }
 
 .container{
