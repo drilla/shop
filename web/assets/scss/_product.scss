@@ -1,5 +1,4 @@
 .product__product-card {
-  background-color: $secondary-color;
   margin-bottom: 10rem;
   .main-padding {
     padding: 3rem 5rem 0rem;
@@ -119,8 +118,8 @@
   button {
     &.btn-buy{
       font-size: 2rem;
-      background-color: $color-main-font;
-      color: darken($secondary-color, 10%);
+      background-color: $color-green;
+      color: $color-main-bg;
     }
   }
 
