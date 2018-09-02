@@ -1,32 +1,34 @@
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="h2">Хиты продаж</h2>
-        </div>
+{% if productPairs %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="h2">Хиты продаж</h2>
+            </div>
 
-        <div class="col-12">
-            <div class="d-flex pb-4 pt-4 scroll-x" style="overflow-x: auto;">
+            <div class="col-12">
+                <div class="d-flex pb-4 pt-4 scroll-x" style="overflow-x: auto;">
 
-                    <div class="d-flex flex-column">
-                        {% include 'catalog/block/_product_card.html.twig' with {
-                            additionalClass:'card_points_big',
-                            product: mainProduct}
-                        only
-                        %}
-                    </div>
+                        <div class="d-flex flex-column">
+                            {% include 'catalog/block/_product_card.html.twig' with {
+                                additionalClass:'card_points_big',
+                                product: mainProduct}
+                            only
+                            %}
+                        </div>
 
-                {% for productPair in productPairs %}
+                    {% for productPair in productPairs %}
 
-                    <div class="d-flex flex-column">
-                        {% include 'catalog/block/_product_card_main.html.twig' with {product: productPair[0]} only %}
+                        <div class="d-flex flex-column">
+                            {% include 'catalog/block/_product_card_main.html.twig' with {product: productPair[0]} only %}
 
-                        {% if productPair|length is same as(2) %}
-                            {% include 'catalog/block/_product_card.html.twig' with {product: productPair[1]} only %}
-                        {% endif %}
-                    </div>
+                            {% if productPair|length is same as(2) %}
+                                {% include 'catalog/block/_product_card.html.twig' with {product: productPair[1]} only %}
+                            {% endif %}
+                        </div>
 
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-</div>
+{% endif %}
