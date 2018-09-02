@@ -30,7 +30,7 @@ class StreamAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper) : void {
         $listMapper
             ->addIdentifier('product', null, ['associated_property' => 'name'])
-            ->addIdentifier('streamId')
+            ->add('streamId', 'text', ['editable' => true])
         ;
     }
 }
