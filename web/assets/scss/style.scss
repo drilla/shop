@@ -128,8 +128,8 @@ body{
     body{
         padding-top: 14rem;
 
-        &.orderPage{
-            padding-top: 14rem;
+        &.orderPage, &.route-product{
+            padding-top: 7rem;
         }
     }
     .container {

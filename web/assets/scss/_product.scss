@@ -63,7 +63,7 @@
           border-bottom: none;
           letter-spacing: 0.6px;
           text-decoration: none;
-          border-radius: 3px;
+          border-radius: 3px 3px 0 0;
           transition: .3s all ease-in-out;
 
           &:hover{
@@ -73,7 +73,7 @@
 
           &.active{
             color: $color-main-font;
-            background-color: $secondary-color;
+            background-color: $color-main-bg;
             border-color: $color-main-font;
           }
         }
@@ -113,6 +113,10 @@
         color: $main-color-2;
       }
     }
+  }
+
+  .nav-tabs {
+    border-bottom: 1px solid $main-color;
   }
 
   button {
