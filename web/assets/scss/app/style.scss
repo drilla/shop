@@ -55,7 +55,6 @@ html{
     font-size: 62.5%;
     min-height: 100%;
     position: relative;
-    min-width: 720px;
 }
 
 body{
@@ -108,6 +107,8 @@ body{
 
 @media (max-width: 575px){
     .container{
+        padding-left : 0;
+        padding-right: 0;
 
         &_order{
             max-width: 100%;
