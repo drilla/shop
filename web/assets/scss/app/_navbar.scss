@@ -1,12 +1,16 @@
 header {
-
+  background-color: $block-bg-color;
   nav {
     color: $secondary-color;
-    background-color: $block-bg-color;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 7rem;
+
+
+    .navbar-block {
+      height: 100%;
+    }
 
     .nav-item {
       align-self: stretch;
@@ -14,11 +18,15 @@ header {
       align-items: center;
       padding: 0 2.7rem;
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1.7rem;
       text-transform: uppercase;
       letter-spacing: 0.6px;
       text-decoration: none;
       transition: .3s all ease-in-out;
+      a {
+        color: $secondary-color;
+      }
+
     }
 
     .nav-logo {
@@ -27,9 +35,18 @@ header {
       justify-content: center;
       width: 100%;
       height:100%;
+      img {
+        height:100%;
+      }
     }
-    .nav-brand {
 
+    .navbar-toggler-icon {
+      width: 5rem;
+      background-image: $navbar-toggler-icon-bg;
     }
+    .icon-bar {
+      background-color: $secondary-color;
+    }
+
   }
 }
