@@ -65,15 +65,24 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="#tabDesc" role="tab" data-toggle="tab">Описание</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tabReview" role="tab" data-toggle="tab">Отзывы</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tabContains" role="tab" data-toggle="tab">Состав</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tabMore" role="tab" data-toggle="tab">Дополнительная информация</a>
-                        </li>
+
+                        {% if product.hasFeedback %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tabReview" role="tab" data-toggle="tab">Отзывы</a>
+                            </li>
+                        {% endif %}
+
+                        {% if product.consist %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tabContains" role="tab" data-toggle="tab">Состав</a>
+                            </li>
+                        {% endif %}
+
+                        {% if product.article %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tabMore" role="tab" data-toggle="tab">Дополнительная информация</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -81,18 +90,28 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="tab-content" role="tabpanel">
+
                         <div id="tabDesc" class="fs-20 tab-pane active show">
                             {% include "product/tab/_description.html.twig" %}
                         </div>
-                        <div id="tabReview" class="fs-20 tab-pane">
-                            {% include "product/tab/_feedback.html.twig" %}
-                        </div>
-                        <div id="tabContains" class="fs-20 tab-pane">
-                            {% include "product/tab/_consist.html.twig" %}
-                        </div>
-                        <div id="tabMore" class="fs-20 tab-pane">
-                            {% include "product/tab/_more.html.twig" %}
-                        </div>
+
+                        {% if product.hasFeedback %}
+                            <div id="tabReview" class="fs-20 tab-pane">
+                                {% include "product/tab/_feedback.html.twig" %}
+                            </div>
+                        {% endif %}
+
+                        {% if product.consist %}
+                            <div id="tabContains" class="fs-20 tab-pane">
+                                {% include "product/tab/_consist.html.twig" %}
+                            </div>
+                        {% endif %}
+
+                        {% if product.getArticle %}
+                            <div id="tabMore" class="fs-20 tab-pane">
+                                {% include "product/tab/_more.html.twig" %}
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

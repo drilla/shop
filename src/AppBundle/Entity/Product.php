@@ -67,6 +67,7 @@ class Product
     public function __construct() {
         $this->images = new ArrayCollection();
     }
+
     public function getImages(): Collection {
         return $this->images;
     }
@@ -209,5 +210,12 @@ class Product
     public function setRateCount(int $rateCount) : Product {
         $this->rateCount = $rateCount;
         return $this;
+    }
+
+    /**
+     * есть ли хоть один отзыв
+     */
+    public function hasFeedback() : bool {
+        return false;
     }
 }
